@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-var port = 5555
-const router = require('./routers/index')
+var port = 3000
+const router = require('./router/index')
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
