@@ -1,12 +1,15 @@
-const express = require('express')
-const app = express()
-var port = 5555
-const router = require('./routers/index')
+const express = require('express');
+const app = express();
+// const router = require('./routers/index')
 const bodyParser = require('body-parser')
+const path = require('path')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+//read file
+app.use('/public', express.static(path.join(__dirname, "/public")))
+//html
+app.get('/floda', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/index.html'))
+})
 
-app.use(express.static( __dirname + "/publics"))
-app.use('/', router)
-
-app.listen(port,() => console.log(`server connect port ${port}`))
+app.listen(3000)
