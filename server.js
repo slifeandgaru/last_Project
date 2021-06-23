@@ -1,6 +1,7 @@
-const express = require('express');
-const app = express();
-// const router = require('./routers/index')
+const express = require('express')
+const app = express()
+var port = 3000
+const router = require('./router/index')
 const bodyParser = require('body-parser')
 const path = require('path')
 app.use(bodyParser.urlencoded({ extended: false }))
