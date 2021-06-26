@@ -4,12 +4,19 @@ let userSchema = mongoose.Schema({
     username: String,
     password: String,
     email: String,
-    phone: Number,
-    address: String
+    avatar: String,
+    cartID: String,
+    listBill: [{
+        type: String,
+        ref: 'bill'
+    }]
 },{
     collection: 'user'
 })
 
-let userModel = mongoose.model("user", userSchema)
+// tạo model
+const userModel = mongoose.model("user", userSchema);
 
-module.exports = userModel
+// export
+module.exports = userModel;
+
