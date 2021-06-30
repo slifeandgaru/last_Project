@@ -17,7 +17,13 @@ app.use("/load", load)
 app.use(express.static( __dirname + "/public"))
 //html
 app.get('/floda', (req,res) => {
-    res.sendFile(path.join(__dirname,'./public/html/index.html'))
+    res.sendFile(path.join(__dirname,'./public/html/home.html'))
+})
+app.get('/floda/gioi-thieu', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/gioithieu.html'))
+})
+app.get('/floda/lien-he', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/lienhe.html'))
 })
 app.get('/create', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/managerRegister.html'))
