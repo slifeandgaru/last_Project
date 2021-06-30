@@ -6,9 +6,9 @@ let productSchema = mongoose.Schema({
     classifyID: String,
     description: String,
     amount: String,
-    listPicture:{
+    listPicture:[{
         type: String
-    }
+    }]
 },{
     collection: 'product'
 })

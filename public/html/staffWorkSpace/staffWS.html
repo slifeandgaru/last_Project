@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="../../css/bootstrap.css"> -->
   <link rel="stylesheet" href="">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
     </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <title>Document</title>
 </head>
 
@@ -40,35 +42,16 @@
 
     </tbody>
   </table>
-  <form action="/load/single" method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" id="myfile">
+  <form action="/load/multiple" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" id="myfile" multiple>
     tên <input type="text" id="proName" name="productname">
     Giá <input type="text" id="proPrice" name="price">
-    <button onclick="submit()">ok</button>
+    <button type="submit" onclick="submit()">ok</button>
   </form>
 
 </body>
 <script src="../../js/bootstrap.js"></script>
 <script>
-  function submit() {
-    let productname = $("#proName").val()
-    let price = $("#proProce").val()
-
-    $.ajax({
-      url: '/load/single',
-      method: "POST",
-      data: {
-        productname,
-        price
-      }
-    })
-      .then((data) => {
-
-      }).catch((err) => {
-        console.log(err);
-      })
-  }
-
   function Refresh() {
     let tbody = $("#idtbody")
     tbody.empty();
@@ -83,7 +66,7 @@
           tbody.append(`
                 <tr>
                   <td>${i + 1}</td>
-                  <td><img style="width: 150px; height: 200px;" src="../../image/${data.value[i].listPicture}" alt=""></td>
+                  <td><img style="width: 150px; height: 200px;" src="../../image/${data.value[i].listPicture[1]}" alt=""></td>
                   <td>${data.value[i].productname}</td>
                   <td>${data.value[i].price}</td>
                 </tr>

@@ -29,11 +29,14 @@ const fileStorageEngine = multer.diskStorage({
 
 const upload = multer({ storage: fileStorageEngine })
 
-router.post("/single", upload.single('image'), (req, res) => {
+router.post("/multiple", upload.array('image', 3), (req, res) => {
     let productname = req.body.productname
     let price = req.body.price
-    let listPicture = req.file.filename
-    
+    let listPicture = []
+    for(let i = 0; i < req.files.length; i++){
+        listPicture.push(req.files[i].filename)
+    }
+    console.log(listPicture);
     productModel.create({productname, price, listPicture})
     .then((data) =>{
         console.log(data);
@@ -41,9 +44,14 @@ router.post("/single", upload.single('image'), (req, res) => {
         console.log(err);
     })
 
-    console.log(req.file);
+    // console.log(req.files[0].filename);
     // res.json("Single file upload success")
 });
+
+// router.post("/multiple", upload.array('image', 3), (req, res) => {
+//     console.log(req.files);
+//     res.send("Multiple file upload success")
+// });
 
 router.get("/refresh", (req, res) =>{
     productModel.find()
