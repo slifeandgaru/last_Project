@@ -4,13 +4,30 @@ var port = 3000
 const router = require('./router/index')
 const bodyParser = require('body-parser')
 const path = require('path')
+const manager = require("./router/managerRouter")
+const load = require("./router/staffRouter")
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+
+app.use("/managerRouter", manager)
+app.use("/load", load)
 //read file
-app.use('/public', express.static(path.join(__dirname, "/public")))
+app.use(express.static( __dirname + "/public"))
 //html
 app.get('/floda', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/index.html'))
+})
+app.get('/create', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/managerRegister.html'))
+})
+app.get('/login', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/mLogin.html'))
+})
+
+app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/staffWorkSpace/staffWS.html'))
 })
 
 app.listen(3000)

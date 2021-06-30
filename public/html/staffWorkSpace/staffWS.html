@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/bootstrap.css">
+  <link rel="stylesheet" href="">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+    </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Staff Work Space</h1>
+  <button id="btnRefresh" onclick="Refresh()">Refresh</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Operator</th>
+      </tr>
+    </thead>
+    <tbody id="idtbody">
+
+      <!-- <tr>
+        <td><form action="/load/single" method="POST" enctype="multipart/form-data">
+          <input type="file" name="image" id="myfile">
+          <button type="submit">ok</button>
+        </form></td>
+        <td id="picture">Otto</td>
+        <td>Some thig</td>
+        <td>infinity</td>
+      </tr> -->
+
+    </tbody>
+  </table>
+  <form action="/load/single" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" id="myfile">
+    tên <input type="text" id="proName" name="productname">
+    Giá <input type="text" id="proPrice" name="price">
+    <button onclick="submit()">ok</button>
+  </form>
+
+</body>
+<script src="../../js/bootstrap.js"></script>
+<script>
+  function submit() {
+    let productname = $("#proName").val()
+    let price = $("#proProce").val()
+
+    $.ajax({
+      url: '/load/single',
+      method: "POST",
+      data: {
+        productname,
+        price
+      }
+    })
+      .then((data) => {
+
+      }).catch((err) => {
+        console.log(err);
+      })
+  }
+
+  function Refresh() {
+    let tbody = $("#idtbody")
+    tbody.empty();
+    $.ajax({
+      url: "/load/refresh",
+      method: "GET"
+    })
+      .then((data) => {
+        console.log(data);
+
+        for (let i = 0; i < data.value.length; i++) {
+          tbody.append(`
+                <tr>
+                  <td>${i + 1}</td>
+                  <td><img style="width: 150px; height: 200px;" src="../../image/${data.value[i].listPicture}" alt=""></td>
+                  <td>${data.value[i].productname}</td>
+                  <td>${data.value[i].price}</td>
+                </tr>
+        `)
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+</script>
+
+</html>
