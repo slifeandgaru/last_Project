@@ -1,23 +1,68 @@
-function Submit_Login(){
+function chooseAdmin(){
+    $(".beforeLogin").attr("style", "display:none")
+    $(".startLogin-Admin").removeAttr("style")
+
+}
+
+function adminLogin(){
+    let role = "Admin"
     $.ajax({
         url: "/managerRouter/login",
         method: "POST",
         data: {
-            account : $("#idAccount").val(),
-            password: $("#idPass").val(),
-            role: $("#myselect option:selected").val()
+            account : $("#idAdmin-Account").val(),
+            password: $("#idAdmin-Pass").val(),
+            role
         }
     })
     .then((data) =>{
-        console.log(data.value);
-        if(data.value == "staff"){
-            window.location.href = "/staffWS"
+        console.log(data.message);
+        if(data.error == true){
+            $(".alertError").append(`<span class="spanError">${data.message}</span>`)
         }
         setCookie('token', data.token, 30)
     })
-    .catch((err) =>{
-        console.log(err + "error");
+    .catch((error) =>{
+        console.log(error + "error");
     })
+}
+
+function staffLogin(){
+    let role = "staff"
+    $.ajax({
+        url: "/managerRouter/login",
+        method: "POST",
+        data: {
+            account : $("#idStaff-Account").val(),
+            password: $("#idStaff-Pass").val(),
+            role
+        }
+    })
+    .then((data) =>{
+        console.log(data.message);
+        if(data.error == true){
+            $(".alertError").append(`<span class="spanError">${data.message}</span>`)
+        }
+        setCookie('token', data.token, 30)
+    })
+    .catch((error) =>{
+        console.log(error + "error");
+    })
+}
+
+function back_Admin(){
+    $(".startLogin-Admin").attr("style", "display:none")
+    $(".beforeLogin").removeAttr("style")
+}
+
+function chooseStaff(){
+    $(".beforeLogin").attr("style", "display:none")
+    $(".startLogin-Staff").removeAttr("style")
+}
+
+function back_Staff(){
+    $(".startLogin-Staff").attr("style", "display:none")
+    $(".beforeLogin").removeAttr("style")
 }
 
 
