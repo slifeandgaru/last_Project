@@ -10,45 +10,84 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<header style="height: auto" class="container">
-    <div style="display: flex; margin-top: 10px;">
-        <p>Welcome to Floda online store</p>
-        <ul style="display: flex; list-style: none;padding-left: 700px;" class="col-lg-0"  >
-            <li>Languages</li>
-            <li style="display: inline; padding-left: 40px;"><a href="" style=" color: black;"><i class="fab fa-facebook"></i></a></li>
-            <li style="display: inline; padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-instagram"></i></a></li>
-            <li style="display: inline; padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-twitter"></i></a></li>
-        </ul>
+<header style="height: auto">
+    <div class="container"> 
+            <div class="row welcom" style=" margin-top: 10px;">
+                <p class="col-lg-4 ">Welcome to Floda online store</p>
+                <div class="col-lg-8 socialnw">
+                    <ul style="display: flex; list-style: none;padding-left: 500px;"  >
+                        <li>Languages</li>
+                        <li style="padding-left: 40px;"><a href="" style=" color: black;"><i class="fab fa-facebook"></i></a></li>
+                        <li style="padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-instagram"></i></a></li>
+                        <li style="padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-twitter"></i></a></li>
+                     </ul>
+                </div>
+            </div>
     </div>
     <hr style="width:100%">
-    <div style="display: flex; font-size: 14px; list-style: none;">
-        <h3 class="">FLODA</h3>
-        <ul style="display: flex;" class="col-2"></ul>
-            <li><a href="" style=" color: black;">TRANG CHỦ</a></li>
-            <li style="padding-left: 50px;"><a href="" style=" color: black;">GIỚI THIỆU</a></li>
-            <li style="padding-left: 50px;"><a href="" style=" color: black;" class="dropDownMenu">CỬA HÀNG<i class="fas fa-angle-down"></i></a></li>
-            <li style="padding-left: 50px;"><a href="" style=" color: black;">TIN TỨC</a></li>
-            <li style="padding-left: 50px;"><a href="" style=" color: black;">LIÊN HỆ</a></li>
-        </ul>
-        <ul style="display: flex; padding-left: 200px; font-size: 20px; list-style: none !important;">
-            <li><a href="" style=" color: black;"><i class="fas fa-search"></i></a></li>
-            <li style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-heart"></i></a></li>
-            <li style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-user"></i></a></i></li>
-            <li style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
+    <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light row">
+                <div class="col-lg-2 logo1">
+                    <a class="navbar-brand " href="#"><img src="/public/image/logo.png" alt=""></a>
+                    <button class="navbar-toggler sel" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button> 
+                    <li style="padding-left: 10px; list-style: none!important;" class="asdsa"><a href="" style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
+                </div>
+                <div class="collapse navbar-collapse col-lg-8 optio" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#" style="padding-left:70px">TRANG CHỦ<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link optio1" href="#" style="padding-left:50px">GIỚI THIỆU</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle optio1" style="padding-left:50px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CỬA HÀNG
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Hoa của mẹ</a>
+                        <a class="dropdown-item" href="#">Hoa cưới</a>
+                        <a class="dropdown-item" href="#">Hoa sale</a>
+                        <a class="dropdown-item" href="#">Hoa tựu trường</a>
+                        <a class="dropdown-item" href="#">Hoa valentine</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled optio1" style="padding-left:50px" href="#">TIN TỨC</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled optio1" style="padding-left:50px" href="#">LIÊN HỆ</a>
+                    </li>
+                  </ul>
+                </div>
+                <div  class="col-lg-2"> 
+                    <form>
+                        <ul style="display: flex; font-size: 20px; list-style: none !important;">
+                            <li class="hideicon"><a href="" style=" color: black;"><i class="fas fa-search"></i></a></li>
+                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-heart"></i></a></li>
+                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-user"></i></a></i></li>
+                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </form>
+                </div>
+            </nav>
     </div>
 </header>
 
 <body>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
+        <div class="carousel-inner ">
           <div class="carousel-item active">
             <img src="/public/image/home1-slide1.jpg" class="d-block w-100" alt="...">
-            <div class="absolute-div">
+            <div>
                 <div class="carousel-caption animated animatedFadeInUp fadeInUp">
-                    <h3 style="color: #cc2121; line-height: 1;">Món quà Valentine</h3>
-                    <h2 style="font-weight: 500; color: #555;">Thay Đổi Suy Nghĩ và Cảm Nhận Tình Yêu</h2>
-                    <button style="background-color: #cc2121;color: white;height: 52px;width: 152px; border-style: none !important;font-size: 20px;font-weight: 400;">Mua Ngay</button>
+                    <div class="carousel-content">
+                        <h3 style="color: #cc2121; line-height: 1;">Món quà Valentine</h3>
+                        <h2 style="font-weight: 500; color: #555;">Thay Đổi Suy Nghĩ và Cảm Nhận Tình Yêu</h2>
+                        <button style="background-color: #cc2121;color: white;height: 52px;width: 152px; border-style: none !important;font-size: 20px;font-weight: 400;">Mua Ngay</button>
+                    </div>
                 </div>
             </div>
           </div>
@@ -56,9 +95,11 @@
             <img src="/public/image/home1-slide2.jpg" class="d-block w-100" alt="...">
             <div class="absolute-div">
                 <div class="carousel-caption">
-                    <h3 class="content">Món quà Valentine</h3>
+                    <div class="carousel-content">
+                        <h3 class="content">Món quà Valentine</h3>
                     <h2 style="font-weight: 500; color: #555;">Thay Đổi Suy Nghĩ và Cảm Nhận Tình Yêu</h2>
                     <button style="background-color: #cc2121;color: white;height: 52px;width: 152px; border-style: none !important;font-size: 20px;font-weight: 400;">Mua Ngay</button>
+                    </div>
                 </div>
             </div>
           </div>
@@ -73,57 +114,59 @@
         </a>
     </div>
     <div style="margin-top: 40px;">
-          <div class="container" style="display: flex;">
-              <div style="position: relative;">
-                  <img src="/public/image/img1-top-floda1.jpg" alt="">
-                    <div class="img-caption">
-                        <h2 class="content">Top Friday</h2>
-                        <h2>Vàng gold</h2>
-                        <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
-                    </div>
-              </div>
-              <div style="margin-left: 20px;position: relative;">
-                  <img src="/public/image/img1-top-floda2.jpg" alt="">
-                  <div class="img-caption">
-                    <h2 class="content">Black Friday</h2>
-                    <h2>Hoa Lan</h2>
-                    <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
+          <div class="container">
+              <div class="row fldd">
+                <div style="position: relative;" class="col-lg-3 col-md-4 col-sm-12  fld0">
+                    <img src="/public/image/img1-top-floda1.jpg" alt="">
+                      <div class="img-caption">
+                          <h2 class="content">Top Friday</h2>
+                          <h2>Vàng gold</h2>
+                          <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
+                      </div>
                 </div>
-              </div>
-              <div style="margin-left: 20px;position: relative;">
-                  <img src="/public/image/img1-top-floda3.jpg" alt="">
-                  <div class="img-caption">
-                    <h2 class="content">10% Off</h2>
-                    <h2>Hoa Tulip</h2>
-                    <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
+                <div style="margin-left: 100px;position: relative;" class="col-lg-3 col-md-4 col-sm-12 fld1">
+                    <img src="/public/image/img1-top-floda2.jpg" alt="">
+                    <div class="img-caption">
+                      <h2 class="content">Black Friday</h2>
+                      <h2>Hoa Lan</h2>
+                      <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
+                  </div>
+                </div>
+                <div style="margin-left: 100px;position: relative;" class="col-lg-3 col-md-4 col-sm-12 fld2">
+                    <img src="/public/image/img1-top-floda3.jpg" alt="">
+                    <div class="img-caption">
+                      <h2 class="content">10% Off</h2>
+                      <h2>Hoa Tulip</h2>
+                      <a href="" class="is-underline is-xlarge lowercase" style="color:black;"><span>Mua ngay</span></a>
+                  </div>
                 </div>
               </div>
           </div>
     </div>
     <div class="container" style="margin-top: 80px">
           <div class="row">
-              <div class="col-lg-3" style="display:flex">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6" style="display:flex">
                   <img style="height: 50px;" src="/public/image/free_shipping.png" alt="">
                    <div style="padding-left: 10px;">
                     <p style="padding-top: 5px; font-weight: bold;" >MIỄN PHÍ VẬN CHUYỂN</p>
                     <p style="margin-top: -14px;">Miễn phí tất cả đơn hàng</p>
                    </div>
               </div>
-              <div class="col-lg-3" style="display:flex">
+              <div class="col-lg-3 col-md-6 col-6" style="display:flex">
                   <img style="height: 50px;" src="/public/image/support247.jpg" alt="">
                   <div style="padding-left: 10px;">
                     <p style="padding-top: 5px; font-weight: bold;" >HỖ TRỢ 24/7</p>
                     <p style="margin-top: -14px;">Hỗ trợ 24 Giờ Một Ngày</p>
                    </div>
               </div>
-              <div class="col-lg-3" style="display:flex">
+              <div class="col-lg-3 col-md-6 col-6" style="display:flex">
                   <img style="height: 50px;" src="/public/image/money_back.png" alt="">
                   <div style="padding-left: 10px;">
                     <p style="padding-top: 5px; font-weight: bold;" >HOÀN TIỀN</p>
                     <p style="margin-top: -14px;">Hoàn Tiền Trong 30 Ngày</p>
                    </div>
               </div>
-              <div class="col-lg-3" style="display:flex">
+              <div class="col-lg-3 col-md-6 col-6" style="display:flex">
                   <img style="height: 50px;" src="/public/image/promotions.jpg" alt="">
                   <div style="padding-left: 10px;">
                     <p style="padding-top: 5px; font-weight: bold;" >GIẢM GIÁ</p>
@@ -138,7 +181,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-11.jpg" alt="" class="img-back">
@@ -150,7 +193,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-7.jpg" alt="" class="img-back">
@@ -162,7 +205,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-3.jpg" alt="" class="img-back">
@@ -174,7 +217,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-10.jpg" alt="" class="img-back">
@@ -188,7 +231,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-2.jpg" alt="" class="img-back">
@@ -200,7 +243,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-5 .jpg" alt="" class="img-back">
@@ -212,7 +255,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-7.jpg" alt="" class="img-back">
@@ -224,7 +267,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-10.jpg" alt="" class="img-back">
@@ -242,8 +285,9 @@
         <button style="background-color: #cc2121;color: white;height: 40px;width: 250px; border-style: none !important;font-size: 20px;font-weight: 400;cursor: pointer;">Xem thêm sản phẩm</button>
     </div>
 
-    <div class="container banner" style="display: flex;">
-            <div class="col-lg-6">
+    <div class="container banner">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 bne">
                     <img src="/public/image/banner-1.jpg" alt="" style="width:99%">
                     <div class="banner-content">
                         <h2 class="content">For you</h2>
@@ -251,13 +295,14 @@
                         <a href="" style="color:black;"><span>Mua ngay</span></a>
                     </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6  col-md-6 bne bnee">
                 <img src="/public/image/banner-2.jpg" alt="" style="width:99%">
                 <div class="banner-content">
                     <h2 class="content">For you</h2>
                     <h2>Flower & Box</h2>
                     <a href="" style="color:black;"><span>Mua ngay</span></a>
                 </div>
+            </div>
             </div>
     </div>
 
@@ -268,7 +313,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-11.jpg" alt="" class="img-back">
@@ -280,7 +325,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-7.jpg" alt="" class="img-back">
@@ -292,7 +337,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-3.jpg" alt="" class="img-back">
@@ -304,7 +349,7 @@
                     </figcaption>
                 </figure>       
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation">
                         <img src="/public/image/product-10.jpg" alt="" class="img-back">
@@ -322,46 +367,49 @@
 </body>
 
 <footer style="height: auto">
-    <div style="display: flex; margin-top: 80px; margin-bottom: 40px;" class="container">
-        <div>   
-            <h3>Liên hệ</h3>
-            <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6></div>
-            <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6></div>
-            <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6></div>
-            <div style="display: flex; padding-top: 10px;"><img src="/public/image/payment-pic.png" alt=""></div>
+    <div style="margin-top: 80px; margin-bottom: 40px;" class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 ">   
+                <h3>Liên hệ</h3>
+                <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6></div>
+                <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6></div>
+                <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6></div>
+                <div style="display: flex; padding-top: 10px;"><img src="/public/image/payment-pic.png" alt=""></div>
+            </div>
+            <div  class="col-lg-6 col-md-6   ft row">
+                <div>
+                    <ul style="list-style: none !important;">
+                        <li><h5>Danh Mục</h5></li>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa cưới</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Sale</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa của mẹ</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Valentine</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Tựu Trường</li></a>
+                    </ul>
+                </div>
+                <div style="padding-left: 90px;">
+                    <ul style="list-style: none !important;">
+                        <li><h5>Mục Lục</h5></li>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Trang Chủ</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Giới Thiệu</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Liên Hệ</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Giao Dịch</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Vận Chuyển</li></a>
+                    </ul>
+                </div>
+                <div style="padding-left: 90px;">
+                    <ul style="list-style: none !important;">
+                        <li><h5>Liên Kết</h5></li>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Tài Khoản</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Địa Chỉ Cửa Hàng</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Theo Dõi Đơn Hàng</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hướng Dẫn</li></a>
+                        <a href="" style="color:black;"><li style="padding-top: 5px;">Liên hệ</li></a>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div style="display: flex;">
-            <div style="padding-left: 90px;">
-                <ul style="list-style: none !important;">
-                    <li><h5>Danh Mục</h5></li>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa cưới</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Sale</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa của mẹ</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Valentine</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Tựu Trường</li></a>
-                </ul>
-            </div>
-            <div style="padding-left: 90px;">
-                <ul style="list-style: none !important;">
-                    <li><h5>Mục Lục</h5></li>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Trang Chủ</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Giới Thiệu</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Liên Hệ</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Giao Dịch</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Vận Chuyển</li></a>
-                </ul>
-            </div>
-            <div style="padding-left: 90px;">
-                <ul style="list-style: none !important;">
-                    <li><h5>Liên Kết</h5></li>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Tài Khoản</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Địa Chỉ Cửa Hàng</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Theo Dõi Đơn Hàng</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Hướng Dẫn</li></a>
-                    <a href="" style="color:black;"><li style="padding-top: 5px;">Liên hệ</li></a>
-                </ul>
-            </div>
-        </div>
+        
     </div>
     <div style="background-color:rgba(0,0,0,0.5);height: 40px;text-align: center;color: #555; " >
         <p>Copyright ©All Right Reserved.</p>
