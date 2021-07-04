@@ -18,5 +18,11 @@ app.get('/floda/gioi-thieu', (req,res) => {
 app.get('/floda/lien-he', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/lienhe.html'))
 })
+app.get('/floda/cua-hang', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/store.html'))
+})
+app.get('/floda/san-pham', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/product.html'))
+})
 
 app.listen(3000)
