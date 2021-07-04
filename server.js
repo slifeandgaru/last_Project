@@ -5,6 +5,7 @@ const router = require('./router/index')
 const bodyParser = require('body-parser')
 const path = require('path')
 const manager = require("./router/managerRouter")
+const staff = require("./router/staffRouter")
 const load = require("./router/staffRouter")
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -12,6 +13,8 @@ app.use(bodyParser.json())
 
 
 app.use("/managerRouter", manager)
+app.use("/staffRouter", staff)
+
 app.use("/load", load)
 //read file
 app.use(express.static( __dirname + "/public"))
@@ -32,8 +35,8 @@ app.get('/login', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/mLogin.html'))
 })
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname,'./public/html/staffWorkSpace/staffWS.html'))
+app.get('/staffWS', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/WorkSpace/staffWS.html'))
 })
 
 app.listen(3000)

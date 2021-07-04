@@ -42,6 +42,8 @@ function staffLogin(){
         console.log(data.message);
         if(data.error == true){
             $(".alertError").append(`<span class="spanError">${data.message}</span>`)
+        }else if(data.message == "đăng nhập thành công"){
+            window.location.href = "/staffWS"
         }
         setCookie('token', data.token, 30)
     })

@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
                             res.json({
                                 token: token,
                                 error: false,
-                                message: 'login successful',
+                                message: 'đăng nhập thành công',
                                 value: data.role
                             })
                         } else {
@@ -86,5 +86,7 @@ router.post("/login", (req, res) => {
     }
 
 })
+
+
 
 module.exports = router
