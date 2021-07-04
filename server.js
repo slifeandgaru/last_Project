@@ -19,16 +19,27 @@ app.use("/load", load)
 //read file
 app.use(express.static( __dirname + "/public"))
 //html
+
 app.get('/floda', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/home.html'))
 })
+
 app.get('/floda/gioi-thieu', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/gioithieu.html'))
 })
+
 app.get('/floda/lien-he', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/lienhe.html'))
 })
-<<<<<<< HEAD
+
+app.get('/floda/cua-hang', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/store.html'))
+})
+
+app.get('/floda/san-pham', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/product.html'))
+})
+
 app.get('/create', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/managerRegister.html'))
 })
@@ -38,13 +49,6 @@ app.get('/login', (req,res) => {
 
 app.get('/staffWS', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/WorkSpace/staffWS.html'))
-=======
-app.get('/floda/cua-hang', (req,res) => {
-    res.sendFile(path.join(__dirname,'./public/html/store.html'))
-})
-app.get('/floda/san-pham', (req,res) => {
-    res.sendFile(path.join(__dirname,'./public/html/product.html'))
->>>>>>> 15578e326cda078a3d2ac1ea64a6160d967003b1
 })
 
-app.listen(3000)
+app.listen(3000);
