@@ -11,6 +11,9 @@ html,body{
     .asdsa{
         display: none;
     }
+    header .a{
+      display: none;
+    }
 }
 nav{
     font-weight: 500;
@@ -84,8 +87,6 @@ font-weight: 600;
   .sm-text {
     font-size: 14px
   }
-  
-
 .is-divider{
     height: 3px;
     display: block;
@@ -205,4 +206,63 @@ figcaption{
   opacity: 0;
   cursor: pointer;
 }
-
+@media only screen and (max-width: 992px)  {
+  .socialnw{
+      display: none;
+  }
+  .welcom{
+      text-align: center;
+      padding-right: 60px;
+  }
+  header hr{
+      margin-bottom: 10px;
+  }
+  .hideicon{
+      display: none;
+  }
+  .logo1{
+     display: flex;
+     justify-content: space-between;
+  }
+  .logo1 a{
+      order: 1;
+  }
+  .logo1 button{
+      order: 2;
+  }
+  .logo1 li{
+      font-size: 25px;
+  }
+  .optio{
+      margin-left: 480px;
+  }
+  .optio ul .optio1{
+      margin-left: 22px;
+  }
+  .list1{
+    display: none;
+  }
+  .detail{
+    border-left: none !important;
+  }
+  .method img{
+    height: 70px;
+    width:150px;
+    object-fit: cover;
+    padding-top: 13px;
+  }
+}
+@media only screen and (max-width:768px) {
+  .welcom{
+      padding-right: 30px ;
+  }
+  .optio{
+      margin-left: 300px  ;
+  }
+  .optio ul .optio1{
+      margin-left: 22px ;
+  }
+  .method img{
+    width:120px;
+  }
+}
