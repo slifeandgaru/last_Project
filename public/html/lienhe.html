@@ -5,79 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/css/lienhe.css">
+    <link rel="stylesheet" href="../css/lienhe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <header style="height: auto">
-    <div class="container"> 
-            <div class="row welcom" style=" margin-top: 10px;">
-                <p class="col-lg-4 ">Welcome to Floda online store</p>
-                <div class="col-lg-8 socialnw">
-                    <ul style="display: flex; list-style: none;padding-left: 500px;"  >
-                        <li>Languages</li>
-                        <li style="padding-left: 40px;"><a href="" style=" color: black;"><i class="fab fa-facebook"></i></a></li>
-                        <li style="padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-instagram"></i></a></li>
-                        <li style="padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-twitter"></i></a></li>
-                     </ul>
-                </div>
+    <div class="container">
+        <div class="row welcom" style=" margin-top: 10px;">
+            <p class="col-lg-4 ">Welcome to Floda online store</p>
+            <div class="col-lg-8 socialnw">
+                <ul style="display: flex; list-style: none;padding-left: 500px;">
+                    <li>Languages</li>
+                    <li style="padding-left: 40px;"><a href="" style=" color: black;"><i
+                                class="fab fa-facebook"></i></a></li>
+                    <li style="padding-left: 8px;"><a href="" style=" color: black;"><i
+                                class="fab fa-instagram"></i></a></li>
+                    <li style="padding-left: 8px;"><a href="" style=" color: black;"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
             </div>
+        </div>
     </div>
     <hr style="width:100%">
-        <div class="container" >
-            <nav class="navbar navbar-expand-lg navbar-light row " >
-                <div class="col-lg-2 logo1">
-                    <a class="navbar-brand " href="#"><img src="/public/image/logo.png" alt=""></a>
-                    <button class="navbar-toggler sel" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light row ">
+            <div class="col-lg-2 logo1">
+                <a class="navbar-brand " href="#"><img src="../image/logo.png" alt=""></a>
+                <button class="navbar-toggler sel" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                    </button> 
-                    <li style="padding-left: 10px; list-style: none!important;" class="asdsa"><a href="" style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
-                </div>
-                <div class="collapse navbar-collapse col-lg-8 optio" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
+                </button>
+                <li style="padding-left: 10px; list-style: none!important;" class="asdsa"><a href=""
+                        style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
+            </div>
+            <div class="collapse navbar-collapse col-lg-8 optio" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="#" style="padding-left:70px">TRANG CHỦ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/floda" style="padding-left:70px">TRANG CHỦ<span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link optio1" href="#" style="padding-left:50px " >GIỚI THIỆU</a>
+                        <a class="nav-link optio1" href="/floda/gioi-thieu" style="padding-left:50px ">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle optio1" style="padding-left:50px" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                        CỬA HÀNG
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Hoa của mẹ</a>
-                        <a class="dropdown-item" href="#">Hoa cưới</a>
-                        <a class="dropdown-item" href="#">Hoa sale</a>
-                        <a class="dropdown-item" href="#">Hoa tựu trường</a>
-                        <a class="dropdown-item" href="#">Hoa valentine</a>
-                      </div>
+                        <a class="nav-link dropdown-toggle optio1" style="padding-left:50px" href="#"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            CỬA HÀNG
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/floda/cua-hang">Hoa của mẹ</a>
+                            <a class="dropdown-item" href="#">Hoa cưới</a>
+                            <a class="dropdown-item" href="#">Hoa sale</a>
+                            <a class="dropdown-item" href="#">Hoa tựu trường</a>
+                            <a class="dropdown-item" href="#">Hoa valentine</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled optio1" style="padding-left:50px" href="#">TIN TỨC</a>
+                        <a class="nav-link disabled optio1" style="padding-left:50px" href="#">TIN TỨC</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link disabled optio1" style="padding-left:50px" href="#" >LIÊN HỆ</a>
+                        <a class="nav-link disabled optio1" style="padding-left:50px" href="/floda/lien-he">LIÊN HỆ</a>
                     </li>
-                  </ul>
-                </div>
-                <div  class="col-lg-2"> 
-                    <form>
-                        <ul style="display: flex; font-size: 20px; list-style: none !important;">
-                            <li class="hideicon"><a href="" style=" color: black;"><i class="fas fa-search"></i></a></li>
-                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-heart"></i></a></li>
-                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-user"></i></a></i></li>
-                            <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </form>
-                </div>
-            </nav>
-        </div> 
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <form>
+                    <ul style="display: flex; font-size: 20px; list-style: none !important;">
+                        <li class="hideicon"><a href="" style=" color: black;"><i class="fas fa-search"></i></a></li>
+                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
+                                    class="fas fa-heart"></i></a></li>
+                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
+                                    class="fas fa-user"></i></a></i></li>
+                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
+                                    class="fas fa-shopping-cart"></i></a></li>
+                    </ul>
+                </form>
+            </div>
+        </nav>
+    </div>
 </header>
 
 <body>
     <div class="banner">
-        <img src="/public/image/beautiful-pink-daisies-flowers-website-header.jpg" alt="">
+        <img src="../image/beautiful-pink-daisies-flowers-website-header.jpg" alt="">
         <div class="banner-caption">
             <h2>LIÊN HỆ</h2>
             <p><span>TRANG CHỦ</span><span style="padding-left:10px;padding-right:5px">/</span><span>LIÊN HỆ</span></p>
@@ -125,7 +137,7 @@
                 <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6></div>
                 <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6></div>
                 <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6></div>
-                <div style="display: flex; padding-top: 10px;"><img src="/public/image/payment-pic.png" alt=""></div>
+                <div style="display: flex; padding-top: 10px;"><img src="../image/payment-pic.png" alt=""></div>
             </div>
             <div  class="col-lg-6 col-md-6   ft row">
                 <div>

@@ -3,12 +3,13 @@ const mongoose = require('../config/connectDB')
 let productSchema = mongoose.Schema({
     productname: String,
     price: String,
-    classifyID: String,
+    discount: String,
+    classify: String,
     description: String,
     amount: String,
-    listPicture:{
+    listPicture:[{
         type: String
-    }
+    }]
 },{
     collection: 'product'
 })

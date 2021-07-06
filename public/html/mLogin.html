@@ -8,39 +8,114 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
         </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/mLogin.css">
     <title>Document</title>
 </head>
 
 <body>
-    <h1>Login</h1>
-    <table>
-        <tr>
-            <td>Account</td>
-            <td><input type="text" id="idAccount"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="text" id="idPass"></td>
-        </tr>
-        <tr>
-            <td>Role</td>
-            <td>
-                <select id="myselect">
-                    <option value="Manage">Manage</option>
-                    <option value="Staff">Staff</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><button class="btnSubmit" onclick="Submit_Login()">click</button></td>
-            <td><button class="btnRegister" onclick="change_Register()">Register</button></td>
-        </tr>      
-    </table>
+    <div class="container">
+        <div class="title">
+            <h1>Floda Trang đăng nhập Quản lý</h1>
+        </div>
+        <!-- Đây là phần chọn người đăng nhập (Quản lý) hoặc (Nhân viên) -->
+        <!-- Người dùng chỉ được chọn 1 trong 2 khi chọn xong thì div beforeLogin sẽ bị ẩn đi -->
+        <div class="beforeLogin">
+            <hr class="hr">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="chooseLogin">
+                        <div class="labelLogin">
+                            <button class="btn btn-warning">Quản lý</button>
+                        </div>
+                        <hr>
+                        <div class="loginPart">
+                            <h3>
+                                <center><button class="btn btn-info" onclick="chooseAdmin()">Đăng nhập</button></center>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="chooseLogin">
+                        <div class="label">
+                            <button class="btn btn-warning">Nhân viên</button>
+                        </div>
+                        <hr>
+                        <div class="loginPart">
+                            <h3>
+                                <center><button class="btn btn-info" onclick="chooseStaff()">Đăng nhập</button></center>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Đây là phần đăng nhập -->
+        <!-- Sau khi chọn xong vai trò thì ô đăng nhập của (Quản lý) hoặc (Nhân viên) sẽ hiện ra  -->
+        <!-- Phải nhập đúng (tên đăng nhập) và (mật khẩu) nếu không sẽ không đăng nhập được -->
+
+        <div class="startLogin-Admin" style="display: none;">
+            <center>
+                <h3 style="margin: 20px 0;">Quản lý đăng nhập</h3>
+                <p class="alertError" style="color: red;"></p>
+                <table>
+                    <tr>
+                        <td>Tên đăng nhập: </td>
+                        <td><input type="text" name="" id="idAdmin-Account" onkeypress="myOnkeypress()"></td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu: </td>
+                        <td><input type="text" name="" id="idAdmin-Pass" onkeypress="myOnkeypress()"></td>
+                    </tr>
+                    <tr>
+                        <td type="margin-top: 10px"><button  class="btn btn-info" onclick="adminLogin()">Đăng nhập</button></td>
+                    </tr>
+                </table>
+            </center>
+            <p style="margin-top: 20px;"><button class="btn btn-secondary" onclick="back_Admin()">Quay lại</button></p>
+        </div> 
+
+        <!-- Phần đăng nhập của Nhân viên -->
+
+        <div class="startLogin-Staff" style="display: none;">
+            <center>
+                <h3 style="margin: 20px 0;">Nhân viên đăng nhập</h3>
+                <p class="alertError" style="color: red;"></p>
+                <table>
+                    <tr>
+                        <td>Tên đăng nhập: </td>
+                        <td><input type="text" name="" id="idStaff-Account" onkeypress="myOnkeypress()"></td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu: </td>
+                        <td><input type="text" name="" id="idStaff-Pass" onkeypress="myOnkeypress()"></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn btn-info" onclick="staffLogin()">Đăng nhập</button></td>
+                    </tr>
+                </table>
+            </center>
+            <p style="margin-top: 20px;"><button class="btn btn-secondary" onclick="back_Staff()">Quay lại</button></p>
+        </div>
+
+        
+        <hr>
+    </div>
 </body>
-<script src="/js/mLogin.js"></script>
+<footer>
+    <div style="height: 40px;text-align: center;color: #555; ">
+        <p>Copyright ©All Right Reserved.</p>
+        <p>Create by Xuan Truong & Khang Pham</p>
+    </div>
+</footer>
+<script src="../js/mLogin.js"></script>
 <script>
-    function change_Register(){
-        window.location.href = '/create'
+    function myOnkeypress() {
+        $(".spanError").remove()
     }
 </script>
+
 </html>
