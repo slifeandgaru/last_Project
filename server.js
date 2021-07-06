@@ -7,6 +7,7 @@ const path = require('path')
 const manager = require("./router/managerRouter")
 const staff = require("./router/staffRouter")
 const load = require("./router/staffRouter")
+const product = require("./router/productRouter")
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -14,6 +15,7 @@ app.use(bodyParser.json())
 
 app.use("/managerRouter", manager)
 app.use("/staffRouter", staff)
+app.use("/productRouter", product)
 
 app.use("/load", load)
 //read file
