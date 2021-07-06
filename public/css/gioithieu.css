@@ -7,6 +7,14 @@ html,body{
     width: 100%;
     height: 100%;
 }
+@media only screen and (min-width:992px) {
+    .asdsa{
+        display: none;
+    }
+}
+nav{
+    font-weight: 500;
+}
 .banner img{
     width: 100vw;
     height: 180px;
