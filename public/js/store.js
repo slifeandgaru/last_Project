@@ -9,3 +9,8 @@ function list11() {
     $("#list111").show();
   }
 }
+$('#shop-cart[data-toggle="tooltip"]').tooltip({
+  animated: 'fade',
+  placement: 'bottom',
+});
+

@@ -64,3 +64,7 @@ $(document).ready(function () {
       }
     });
   });
+$('#shop-cart[data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'bottom',
+});
