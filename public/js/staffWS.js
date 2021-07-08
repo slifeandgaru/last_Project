@@ -106,24 +106,24 @@ function doneChangeproduct(){
     })
 }
 
-// function myDeleteproduct(id){
+function myDeleteproduct(id){
 
-//     $.ajax({
-//         url: "/load/remove",
-//         method: "DELETE",
-//         data:{
-//             id
-//         }
-//     })
-//     .then((data)=>{
-//         console.log(data);
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-// }
+    $.ajax({
+        url: "/load/remove",
+        method: "DELETE",
+        data:{
+            id
+        }
+    })
+    .then((data)=>{
+        console.log(data);
+    }).catch((err)=>{
+        console.log(err);
+    })
+}
 
 
-function loadProduct() {
+function Refresh() {
     let tbody = $("#list-product")
     let page = "0"
     console.log(page);
@@ -158,7 +158,7 @@ function loadProduct() {
             console.log(err);
         })
 }
-loadProduct()
+Refresh()
 
 
 //function Set Cookie

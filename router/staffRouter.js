@@ -145,39 +145,39 @@ router.put("/updateProduct", (req, res) => {
 
 
 
-// router.delete('/remove', (req, res) => {
-//     let id = req.body.id
+router.delete('/remove', (req, res) => {
+    let id = req.body.id
 
-//     productModel.findOne({
-//         _id: id
-//     })
-//         .then((data) => {
-//             console.log(data.listPicture[0]);
-//             productModel.deleteOne({
-//                 _id: data._id
-//             })
-//             .then((data)=>{
-//                 console.log(data);
-//             })
-//             .catch((err)=>{
-//                 console.log(err);
-//             })
+    productModel.findOne({
+        _id: id
+    })
+        .then((data) => {
+            console.log(data.listPicture[0]);
+            productModel.deleteOne({
+                _id: data._id
+            })
+            .then((data)=>{
+                console.log(data);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
 
-//             // for (var i = 0; i < data.listPicture.length; i++) {
-//             //     fs.unlink("public/image/" + data.listPicture[i], (err => {
-//             //         if (err) console.log(err);
-//             //         else {
-//             //             console.log("\nDeleted file: example_file.txt");
-//             //         }
-//             //     }));
-//             // }
+            for (var i = 0; i < data.listPicture.length; i++) {
+                fs.unlink("public/image/" + data.listPicture[i], (err => {
+                    if (err) console.log(err);
+                    else {
+                        console.log("\nDeleted file: example_file.txt");
+                    }
+                }));
+            }
     
-//         }).catch((err) => {
-//             res.json({
-//                 error: true,
-//                 message: "xóa thất bại " + err,
-//             })
-//         })
-// })
+        }).catch((err) => {
+            res.json({
+                error: true,
+                message: "xóa thất bại " + err,
+            })
+        })
+})
 
 module.exports = router

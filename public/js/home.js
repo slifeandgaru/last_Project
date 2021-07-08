@@ -54,6 +54,15 @@ function listshow() {
 
 listshow()
 
+
+$("#myClassify li").click(function () {
+    // let tbody = $("#list-product")
+    let classify_flower = $(this).attr('id')
+    console.log(classify_flower);
+    window.location.href = "/floda/cua-hang?"+classify_flower
+    setCookie("classify",classify_flower,30)
+})
+
 function buyProduct(id){
     console.log(id);
     setCookie('product', id, 30)

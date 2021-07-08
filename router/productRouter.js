@@ -9,6 +9,11 @@ const multer = require('multer');
 const router = express.Router();
 const path = require('path')
 
+router.get('/cua-hang/:classify',(req, res) =>{
+    let classify = req.query.classify
+    console.log(classify);
+})
+
 router.get("/load_product/:id", (req, res) => {
     let id = req.params.id
     // let decoed = jwt.verify(product, 'Admin')
