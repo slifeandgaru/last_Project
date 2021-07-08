@@ -1,6 +1,7 @@
 // load ảnh lên mục sản phẩm hàng đầu ở trang Home
 function listshow() {
     let list = $(".listshow")
+    let list1 = $(".listshow1")
     // list.append("dcm")
     // console.log("dcm");
     $.ajax({
@@ -8,12 +9,12 @@ function listshow() {
         method: "GET"
     })
         .then((data) => {
-            console.log(data.value[0]._id);
+            console.log(data);
 
             for (let i = 0; i < 4; i++) {
                 if(data.value[i].discount == undefined){
                     list.append(`
-                        <div class="col-lg-3 col-md-6 col-6">
+                    <div class="col-lg-3 col-md-6 col-6">
                         <figure>
                             <div class="hover-animation">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
@@ -29,11 +30,12 @@ function listshow() {
                       `)
                 }else{
                     list.append(`
-                        <div class="col-lg-3 col-md-6 col-6">
+                    <div class="col-lg-3 col-md-6 col-6">
                         <figure>
                             <div class="hover-animation">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
+                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>-7%</span></div>
                             </div>
                             <figcaption>
                                 <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>
@@ -43,8 +45,7 @@ function listshow() {
                         </figure>       
                     </div>
                       `)
-                }
-                
+                }  
             }
         })
         .catch((err) => {

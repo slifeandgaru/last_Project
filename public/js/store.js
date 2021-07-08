@@ -1,9 +1,61 @@
-function classify_product(){
+function classify_product() {
     var classi = getCookie('classify')
     console.log(classi);
+    let list = $(".listshow_store")
+    $.ajax({
+        url: "/load/loadHome",
+        method: "GET"
+    })
+        .then((data) => {
+            console.log(data.value[0]._id);
+
+            for (let i = 0; i < 4; i++) {
+                if (data.value[i].classify == classi) {
+                    if (data.value[i].discount == undefined) {
+                        list.append(`
+                        <div class="col-lg-3 col-md-6 col-6">
+                        <figure>
+                            <div class="hover-animation">
+                                <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
+                                <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
+                            </div>
+                            <figcaption>
+                                <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>
+                                <p style="color:#cc2121"><span>${data.value[i].price}</span></p>
+                                <button class="btn btn-info" onclick="buyProduct('${data.value[i]._id}')">Mua hàng</button>
+                            </figcaption>
+                        </figure>       
+                    </div>
+                      `)
+                    } else {
+                        list.append(`
+                        <div class="col-lg-3 col-md-6 col-6">
+                        <figure>
+                            <div class="hover-animation">
+                                <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
+                                <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
+                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>-7%</span></div>
+                            </div>
+                            <figcaption>
+                                <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>
+                                <p style="color:#cc2121"><span style="text-decoration: line-through;opacity: 0.5;">${data.value[i].price}</span> <span>${data.value[i].discount} đ</span></p>
+                                <button class="btn btn-info" onclick="buyProduct('${data.value[i]._id}')">Mua hàng</button>
+                            </figcaption>
+                        </figure>       
+                    </div>
+                      `)
+                    }
+
+                }
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 }
 
 classify_product()
+
 
 //function Set Cookie
 function setCookie(cname, cvalue, exdays) {
