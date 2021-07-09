@@ -176,3 +176,7 @@ function getCookie(cname) {
 }
 
 
+$('#shop-cart[data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'bottom',
+});

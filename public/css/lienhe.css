@@ -16,17 +16,18 @@ nav{
    font-weight: 500;
 }
 .banner img{
-    width: 100vw;
-    height: 180px;
-    opacity: 0.6;
-    position: relative;
+   object-fit: cover;
+   width: 100vw;
+   height: 180px;
+   position: relative;
 }
 .banner-caption{
-    position: absolute;
-    top: 25%;
-    left: 43%;
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+   color: #fff;
+   position: absolute;
+   top: 29%;
+   left: 43%;
+   text-align: center;
+   font-family:Arial, Helvetica, sans-serif;
 }
 .contact{
     text-align: center;
@@ -127,3 +128,99 @@ nav{
     -webkit-animation-name: fadeInRight;
     animation-name: fadeInRight;
  }
+ .dropdown {
+   position: relative;
+   display: inline-block;
+ }
+ 
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f1f1f1;
+   min-width: 200px;
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+   z-index: 1;
+ }
+ 
+ .dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+ }
+ 
+ .dropdown-content a:hover {
+   background-color: #ddd;
+ }
+ 
+ .dropdown:hover .dropdown-content {
+   display: block;
+ }
+ 
+ .dropdown:hover .dropbtn {
+   color: #cc2121;
+ }
+@media only screen and (max-width: 992px)  {
+   .socialnw{
+       display: none;
+   }
+   .welcom{
+       text-align: center;
+       padding-right: 60px;
+   }
+   header hr{
+       margin-bottom: 10px;
+   }
+   .hideicon{
+       display: none;
+   }
+   .logo1{
+      display: flex;
+      justify-content: space-between;
+   }
+   .logo1 a{
+       order: 1;
+   }
+   .logo1 button{
+       order: 2;
+   }
+   .logo1 li{
+       font-size: 25px;
+   }
+   .optio{
+       margin-left: 480px;
+   }
+   .optio ul .optio1{
+       margin-left: 22px;
+   }
+   .ctc{
+      margin-top:  -95px !important;
+      margin-left: 60px;
+   }
+   .ctc1{
+      margin-top: -100px !important;
+   }
+   .w-press{
+      margin-top: 22px;
+   }
+   .ctc1 hr{
+      padding-left: 20px;
+   }
+}
+@media only screen and (max-width:768px) {
+   .welcom{
+       padding-right: 30px ;
+   }
+   .optio{
+       margin-left: 300px  ;
+   }
+   .optio ul .optio1{
+       margin-left: 22px ;
+   }
+   .cent-img{
+       margin-top: 0px !important;
+   }
+   .ctc{
+      margin-left: -42px;
+   }
+}
