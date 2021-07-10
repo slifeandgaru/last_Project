@@ -3,6 +3,9 @@ const mongoose = require('../config/connectDB')
 let userSchema = mongoose.Schema({
     username: String,
     password: String,
+    gender: String,
+    phone: String,
+    birthDate:String,
     email: String,
     avatar: String,
     cartID: String,

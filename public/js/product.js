@@ -150,6 +150,18 @@ function load_choose_product() {
 }
 load_choose_product()
 
+function add_to_payment(){
+  if(getCookie("user") == ""){
+    console.log(getCookie("user") );
+    let conf = confirm("Bạn chưa đăng nhập, vui lòng đăng nhập!!!!!!!!!!!")
+    if(conf == true){
+      window.location.href ="/userRegister"
+    }
+  }else{
+    console.log("Sản phẩm đã đc thêm vào giỏ hàng");
+  }
+}
+
 //function Set Cookie
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();

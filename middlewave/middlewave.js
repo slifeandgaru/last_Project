@@ -1,4 +1,5 @@
 const managertModel = require('../Model/managerModel')
+const userModel = require('../Model/userModel')
 const manager = require("../router/managerRouter");
 const jwt = require('jsonwebtoken');
 
@@ -6,6 +7,20 @@ function checkAuth(req, res, next){
     var account = req.body.account
 
     managertModel.findOne({account})
+    .then((data) => {
+        if(data){
+            res.json("tài khoản đã tồn tại")
+        }else{
+            next()
+        }
+    }).catch((err) =>{
+        console.log(err);
+    })
+}
+function checkUser(req, res, next){
+    var username = req.body.username
+
+    userModel.findOne({username})
     .then((data) => {
         if(data){
             res.json("tài khoản đã tồn tại")
@@ -33,5 +48,6 @@ function checkGmail(req, res, next){
 
 module.exports = {
     checkAuth: checkAuth,
-    checkGmail: checkGmail
+    checkGmail: checkGmail,
+    checkUser: checkUser
 }

@@ -8,6 +8,7 @@ const manager = require("./router/managerRouter")
 const staff = require("./router/staffRouter")
 const load = require("./router/staffRouter")
 const product = require("./router/productRouter")
+const user = require("./router/userRouter")
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -16,6 +17,7 @@ app.use(bodyParser.json())
 app.use("/managerRouter", manager)
 app.use("/staffRouter", staff)
 app.use("/productRouter", product)
+app.use("/userRouter", user)
 
 app.use("/load", load)
 //read file
@@ -61,5 +63,11 @@ app.get('/login', (req,res) => {
 app.get('/staffWS', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/WorkSpace/staffWS.html'))
 })
+
+app.get('/userRegister', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/userRegister.html'))
+})
+
+
 
 app.listen(3000);
