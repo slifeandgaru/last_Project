@@ -7,47 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container" style="margin-top: 90px;">
-    <div class="row">
-      <div class="col-lg-7">
-        <table style="height: auto;padding-right: 50px;">
-          <thead>
-            <tr>
-              <th colspan="3" style="width: 52%;">SẢN PHẨM</th>
-              <th >GIÁ</th>
-              <th>SỐ LƯỢNG</th>
-              <th>TỔNG</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="SẢN PHẨM" style="display: flex;">
-                <img style="height: 75px;width: 75px;object-fit: cover;" src="public/image/product-10.jpg" alt="">
-                <p>Blossom bouquet flower</p>
-              </td>
-              <td  style="margin-left: 40px;">65,432 ₫</td>
-              <td data-label="SỐ LƯỢNG">
-                <div class="input-group" style="width: 45%;">
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                      <span><i class="fas fa-minus"></i></span>
-                      </button>
-                  </span>
-                  <input type="text" style="height: 30px;" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" >
-                  <span class="input-group-btn">
-                      <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                          <span><i class="fas fa-plus"></i></span>
-                      </button>
-                  </span>
-                </div>
-              </td>
-              <td data-label="TỔNG">65,432 ₫</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-lg-5" style="border: 1px solid black;height: 500px;"></div>
-    </div>
+  <div class="drawn_card">
+      <img src="public/image/product-11.jpg">
+      <button style="cursor: pointer;">
+        <div class="drawn_content">
+          <i class="fas fa-heart"></i>
+        </div>
+      </button>
   </div>
 </body>
 </html>
