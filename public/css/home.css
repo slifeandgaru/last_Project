@@ -1,195 +1,254 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-html,body{
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
-nav{
-    font-weight: 500;
+nav {
+  font-weight: 500;
 }
-.carousel-caption{
-   position: relative;
+.carousel-caption {
+  position: relative;
 }
-.carousel-caption .carousel-content{
-    position: absolute;
-    top: -250%;
+.carousel-caption .carousel-content {
+  position: absolute;
+  top: -250%;
 }
-.content{
-    font-family: "Dancing Script";
-    color: #cc2121; 
-    font-weight: normal;
-    line-height: 0.7;
+.content {
+  font-family: "Dancing Script";
+  color: #cc2121;
+  font-weight: normal;
+  line-height: 0.7;
 }
-.img-caption{
-    position: absolute;
-    top: 40%;
-    left: 45%;
-    text-align: center;
-    font-style: oblique;
-    font-size: large;
+.img-caption {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  text-align: center;
+  font-style: oblique;
+  font-size: large;
 }
-.img-caption h2{
-    font-size: 25px;
+.img-caption h2 {
+  font-size: 25px;
 }
 /* Animation */
 @keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeInUp {
-    from {
-        transform: translate3d(0,40px,0)
-    }
+  from {
+    transform: translate3d(0, 40px, 0);
+  }
 
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 1
-    }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 .animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-fill-mode: both
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
 }
 
 .animatedFadeInUp {
-    opacity: 0
+  opacity: 0;
 }
 
 .fadeInUp {
-    opacity: 0;
-    animation-name: fadeInUp;
-    -webkit-animation-name: fadeInUp;
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
 }
 
-figcaption{
-    text-align: center;
+figcaption {
+  text-align: center;
 }
 
-.hover-animation{
-    position: relative;
-    height: 250px;
-    width: 250px;
-    margin: 10% auto 0;
-    color: #fff;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+.hover-animation {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  margin: 10% auto 0;
+  color: #fff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
-.hover-animation img{
-    position: absolute;
-    height: 250px;
-    width: 250px;
-    left: 0;
-    -webkit-transition:  0.6s ease-in-out;
-    -moz-transition:  0.6s ease-in-out;
-    -ms-transition:  0.6s ease-in-out;
-    -o-transition:  0.6s ease-in-out;
-    transition:  0.6s ease-in-out;
+.hover-animation img {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  left: 0;
+  -webkit-transition: 0.6s ease-in-out;
+  -moz-transition: 0.6s ease-in-out;
+  -ms-transition: 0.6s ease-in-out;
+  -o-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
 }
-.hover-animation img.img-front:hover{
-    opacity: 0;
-    cursor: pointer;
+.hover-animation img.img-front:hover {
+  opacity: 0;
+  cursor: pointer;
 }
 .banner img {
-    outline: 0.6px solid white;
-    outline-offset: -20px;
-    position: relative;
+  outline: 0.6px solid white;
+  outline-offset: -20px;
+  position: relative;
 }
-.banner-content{
-    position: absolute;
-    top: 30%;
-    right: 15%;
-    font-family:Arial, Helvetica, sans-serif;
-}
-@media only screen and (min-width:992px) {
-    .asdsa{
-        display: none;
-    }
+.banner-content {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media only screen and (max-width: 992px)  {
-   .socialnw{
-       display: none;
-   }
-   .welcom{
-       text-align: center;
-       padding-right: 60px;
-   }
-   header hr{
-       margin-bottom: 10px;
-   }
-   .hideicon{
-       display: none;
-   }
-   .logo1{
-      display: flex;
-      justify-content: space-between;
-   }
-   .logo1 a{
-       order: 1;
-   }
-   .logo1 button{
-       order: 2;
-   }
-   .logo1 li{
-       font-size: 25px;
-   }
-   .optio{
-       margin-left: 480px;
-   }
-   .optio ul .optio1{
-       margin-left: 22px;
-   }
-   .fldd .fld1{ 
-       padding-left: 70px;
-   }
-   .fldd .fld2{
-       padding-top: 20px;
-       padding-left: 105px;
-   }
-   .fld0 .img-caption{
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: #cc2121;
+}
+.drawn_card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.drawn_content {
+  position: absolute;
+  top: -281px;
+  left: 86%;
+  padding: 10px;
+  height: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #eb3434;
+  clip-path: polygon(100% 0%, 50% 9%, 0% 10%, 0% 100%, 100% 100%);
+  transition: ease-in-out 0.5s;
+}
+
+.drawn_card:hover .drawn_content {
+  top: 0px;
+  transition: ease-in 0.5s;
+}
+
+@media only screen and (min-width: 992px) {
+  .asdsa {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .socialnw {
+    display: none;
+  }
+  .welcom {
+    text-align: center;
+    padding-right: 60px;
+  }
+  header hr {
+    margin-bottom: 10px;
+  }
+  .hideicon {
+    display: none;
+  }
+  .logo1 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo1 a {
+    order: 1;
+  }
+  .logo1 button {
+    order: 2;
+  }
+  .logo1 li {
+    font-size: 25px;
+  }
+  .optio {
+    margin-left: 480px;
+  }
+  .optio ul .optio1 {
+    margin-left: 22px;
+  }
+  .fldd .fld1 {
+    padding-left: 70px;
+  }
+  .fldd .fld2 {
+    padding-top: 20px;
+    padding-left: 105px;
+  }
+  .fld0 .img-caption {
     left: 25%;
-    }
-   .fld2 .img-caption{
-       left: 53%;
-   }
-   .bne .banner-content{
-        font-family: fangsong;
-   }
-   .ftt .ft .ft1{
-       padding-left: 0;
-   }
+  }
+  .fld2 .img-caption {
+    left: 53%;
+  }
+  .bne .banner-content {
+    font-family: fangsong;
+  }
+  .ftt .ft .ft1 {
+    padding-left: 0;
+  }
 }
 
-@media only screen and (max-width:768px) {
-    .welcom{
-        padding-right: 30px ;
-    }
-    .optio{
-        margin-left: 300px  ;
-    }
-    .optio ul .optio1{
-        margin-left: 22px ;
-    }
-    .fld0{
-        margin-left: 60px;
-    }
-    .fld1{
-        margin-top: 20px;
-        margin-right: 40px;
-    }
-    .bnee{
-        margin-top: 20px;
-    }
+@media only screen and (max-width: 768px) {
+  .welcom {
+    padding-right: 30px;
+  }
+  .optio {
+    margin-left: 300px;
+  }
+  .optio ul .optio1 {
+    margin-left: 22px;
+  }
+  .fld0 {
+    margin-left: 60px;
+  }
+  .fld1 {
+    margin-top: 20px;
+    margin-right: 40px;
+  }
+  .bnee {
+    margin-top: 20px;
+  }
 }

@@ -8,26 +8,12 @@ html,body{
     height: 100%;
 }
 @media only screen and (min-width:992px) {
-    .asdsa{
-        display: none;
-    }
+   .asdsa{
+       display: none;
+   }
 }
 nav{
-    font-weight: 500;
-}
-.banner img{
-    object-fit: cover;
-    width: 100vw;
-    height: 180px;
-    position: relative;
-}
-.banner-caption{
-    color: #fff;
-    position: absolute;
-    top: 29%;
-    left: 43%;
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+   font-weight: 500;
 }
 .dropdown {
     position: relative;
@@ -94,9 +80,6 @@ nav{
     .optio ul .optio1{
         margin-left: 22px;
     }
-    .cent-img{
-        margin-top: 135px;
-    }
 }
 @media only screen and (max-width:768px) {
     .welcom{
@@ -107,8 +90,5 @@ nav{
     }
     .optio ul .optio1{
         margin-left: 22px ;
-    }
-    .cent-img{
-        margin-top: 0px !important;
     }
 }

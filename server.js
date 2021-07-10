@@ -41,6 +41,15 @@ app.get('/floda/cua-hang', (req,res) => {
 app.get('/floda/san-pham', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/product.html'))
 })
+app.get('/floda/wishlist', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/wishlist.html'))
+})
+app.get('/floda/gio-hang', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/shopping-cart.html'))
+})
+app.get('/floda/thanh-toan', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/payment.html'))
+})
 
 app.get('/create', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/managerRegister.html'))
