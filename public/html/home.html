@@ -90,13 +90,17 @@
             <div class="col-lg-2">
                 <form>
                     <ul style="display: flex; font-size: 20px; list-style: none !important;">
-                        <li class="hideicon"><a href="" style=" color: black;"><i class="fas fa-search"></i></a></li>
-                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
-                                    class="fas fa-heart"></i></a></li>
-                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
-                                    class="fas fa-user"></i></a></i></li>
-                        <li class="hideicon" style="padding-left: 10px;"><a href="" style=" color: black;"><i
-                                    class="fas fa-shopping-cart"></i></a></li>
+                        <li class="hideicon dropdown " id="menu">
+                            <a href="" style=" color: black;"><i class="fas fa-search dropbtn"></i></a>     
+                                <div class="dropdown-content">
+                                  <a href="#"><div style="display: flex;"><input type="text" placeholder="Tìm kiếm..." style="width: 90%;"><button style="cursor: pointer;border-left: none;"><i class="fas fa-search"></i></button></div></a>
+                                </div>
+                        </li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/floda/wishlist" style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="" style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip" title="Chưa có sản phẩm trong giỏ hàng">
+                            <a href="/floda/gio-hang" style=" color: black;"><i class="fas fa-shopping-cart dropbtn"></i></a>
+                        </li>
                     </ul>
                 </form>
             </div>
