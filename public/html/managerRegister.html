@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
+        </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Register</h1>
+    <table>
+        <tr>
+            <td>Account</td>
+            <td><input type="text" id="idAccount"></td>
+        </tr>
+        <tr>
+            <td>Tên</td>
+            <td><input type="text" id="idName"></td>
+        </tr>
+        <tr>
+            <td>mật khẩu</td>
+            <td><input type="text" id="idPass"></td>
+        </tr>
+        <tr>
+            <td>Gmail</td>
+            <td><input type="text" id="idGmail"></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td><input type="text" id="idAdress"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" id="idPhone"></td>
+        </tr>
+        <tr>
+            <td><button class="btnSubmit" onclick="Submit()">click</button></td>
+            <td><button class="btnLogin" onclick="change_Login()">Login</button></td>
+        </tr>
+    </table>
+</body>
+<script src="../js/managerRegister.js"></script>
+<script>
+    function change_Login() {
+        window.location.href = '/login'
+    }
+</script>
+
+</html>

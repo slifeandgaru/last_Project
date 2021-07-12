@@ -1,29 +1,24 @@
-const userModel = require('../Model/userModel')
+const managertModel = require('../Model/managerModel')
 const express = require('express');
-const multer = require('multer');
-const checkAuth = require('../middlewave/middlewave')
-// const ejs = require('ejs');
-const jwt = require('jsonwebtoken')
-// (fs)
-// const fs = require('fs');
-
 const router = express.Router();
-const path = require('path')
+
+const checkAuth = require('../middlewave/middlewave')
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-
-router.post("/", checkAuth.checkUser, (req, res) => {
-    let username = req.body.username
-    // let password = req.body.password
-    let gender = req.body.gender
-    let birthDate = req.body.birthDate
+router.post("/", checkAuth.checkAuth, checkAuth.checkGmail, (req, res) => {
+    let account = req.body.account
+    let name = req.body.name
+    let email = req.body.email
+    let address = req.body.address
     let phone = req.body.phone
+    let role = "staff"
 
     bcrypt.genSalt(saltRounds, function (err, salt) {
         bcrypt.hash(req.body.password, salt, function (err, hash) {
             // Store hash in your password DB.
-            userModel.create({ username, password: hash, gender, birthDate, phone})
+            managertModel.create({ account, name, password: hash, email, address, phone, role })
                 .then((data) => {
                     res.json({
                         error: false,
@@ -41,13 +36,14 @@ router.post("/", checkAuth.checkUser, (req, res) => {
 })
 
 router.post("/login", (req, res) => {
-    // try {
-        let username = req.body.username
+    try {
+        let account = req.body.account
         let password = req.body.password
+        let role = req.body.role
         // console.log(role);
-        userModel.findOne({ username })
+        managertModel.findOne({ account, role })
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 if (data == null) {
                     res.json({
                         error: true,
@@ -58,7 +54,7 @@ router.post("/login", (req, res) => {
                     bcrypt.compare(password, data.password, function (err, result) {
                         if (result) {
                             console.log(result);
-                            let token = jwt.sign({ id: data._id }, 'user')
+                            let token = jwt.sign({ id: data._id }, 'Admin')
                             // let decoed = jwt.verify(token, 'Admin')
                             // console.log(decoed.id);
                             res.json({
@@ -82,15 +78,15 @@ router.post("/login", (req, res) => {
                     message: "loi o catch " + err
                 })
             })
-    } 
-    // catch (error) {
-    //     return res.json({
-    //         error: true,
-    //         message: "loi o try catch " + err
-    //     })
-    // }
-// }
+    } catch (error) {
+        return res.json({
+            error: true,
+            message: "loi o try catch " + err
+        })
+    }
 
-)
+})
+
+
 
 module.exports = router

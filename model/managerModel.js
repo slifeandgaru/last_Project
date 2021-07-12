@@ -1,16 +1,17 @@
 const mongoose = require('../config/connectDB')
 
-let managerSchema = mongoose.Schema({
+const managerSchema = mongoose.Schema({
+    account: String,
     name: String,
     password: String,
     email: String,
     address: String,
-    phone: Number,
+    phone: String,
     role: String
 },{
-    colletion: "manager"
+    collection: 'manager'
 })
 
-let managerModel = mongoose.model("manager", managerSchema)
+const managerModel = mongoose.model("manager", managerSchema)
 
 module.exports = managerModel
