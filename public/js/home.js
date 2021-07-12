@@ -35,7 +35,7 @@ function listshow() {
                             <div class="hover-animation">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
-                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>-7%</span></div>
+                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>${data.value[i].percent}%</span></div>
                             </div>
                             <figcaption>
                                 <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>

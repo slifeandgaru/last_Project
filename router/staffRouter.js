@@ -37,19 +37,18 @@ router.post("/multiple", upload.array('image', 3), (req, res) => {
     let productname = req.body.productname
     let classify = req.body.classify
     let price = req.body.price
+    let percent = req.body.percent
+    let discount = (price - ((price*percent)/100))
     let amount = req.body.amount
     let listPicture = []
     for (let i = 0; i < req.files.length; i++) {
         listPicture.push(req.files[i].filename)
     }
     console.log(listPicture);
-    productModel.create({ productname, classify, price, listPicture, amount })
+    productModel.create({ productname, classify, price, percent, discount, listPicture, amount })
         .then((data) => {
-            // res.json({
-            //     error: false,
-            //     message: "upload ok",
-            //     value: data
-            // })
+            console.log(data);
+            // res.sendFile(path.join(__dirname,'../public/html/WorkSpace/staffWS.html'))
             console.log(data);
         }).catch((err) => {
             // res.json({
@@ -124,15 +123,17 @@ router.put("/updateProduct", (req, res) => {
     let productname = req.body.productname
     let classify = req.body.classify
     let price = req.body.price
-    let discount = req.body.discount
+    let percent = req.body.percent
+    let discount = (price - ((price*percent)/100))
     let amount = req.body.amount
-    console.log(productname);
+    console.log(classify);
     productModel.updateOne({
         _id: id
     }, {
         productname: productname,
         classify: classify,
         price: price,
+        percent: percent,
         discount: discount,
         amount: amount
     })
@@ -157,7 +158,10 @@ router.delete('/remove', (req, res) => {
                 _id: data._id
             })
             .then((data)=>{
-                console.log(data);
+                res.json({
+                    error: false,
+                    message: "xoa thanh cong"
+                })
             })
             .catch((err)=>{
                 console.log(err);

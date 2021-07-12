@@ -41,7 +41,7 @@ $("#myID li").click(function () {
         method: "GET"
     })
         .then((data) => {
-            // console.log(data.value[8].listPicture[0])
+            console.log(data.value[0].percent)
             for (let i = 0; i < 4; i++) {
                 tbody.append(`
                 <tr>
@@ -53,7 +53,7 @@ $("#myID li").click(function () {
                   <td>${data.value[i].discount}</td>
                   <td>${data.value[i].amount}</td>
                   <td>
-                    <button onclick="myChangeproduct('${data.value[i]._id}', '${data.value[i].productname}','${data.value[i].price}','${data.value[i].discount}','${data.value[i].amount}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeproduct">Thay đổi</button>
+                    <button onclick="myChangeproduct('${data.value[i]._id}', '${data.value[i].productname}','${data.value[i].price}', '${data.value[i].percent}','${data.value[i].amount}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeproduct">Thay đổi</button>
                     <button onclick=myDeleteproduct('${data.value[i]._id}') type="button" class="btn btn-danger">Xóa</button>
                   </td>
                 </tr>
@@ -68,25 +68,25 @@ $("#myID li").click(function () {
 // thay đổi product
 // lưu ID khi thay đổi data
 var arrIdToChange = [1]
-function myChangeproduct(id, productname, price, discount, amount) {
+function myChangeproduct(id, productname, price, percent, amount) {
     console.log(id); 
-    console.log(productname); 
+    console.log(percent); 
     if(arrIdToChange.length >= 2) arrIdToChange.pop()
     arrIdToChange.push(id)
     $("#change-name-product").val(`${productname}`)
     $("#change-price-product").val(`${price}`)
-    $("#change-discount-product").val(`${discount}`)
+    $("#change-percent-product").val(`${percent}`)
     $("#change-amount-product").val(`${amount}`)
 }
 
 function doneChangeproduct(){
     let id = arrIdToChange[1]
     let productname = $("#change-name-product").val()
-    var classify = $("#classify option:selected").val();
+    var classify = $("#classify-change option:selected").val()
     let price = $("#change-price-product").val()
-    let discount = $("#change-discount-product").val()
+    let percent = $("#change-percent-product").val()
     let amount = $("#change-amount-product").val()
-    console.log(productname);
+    console.log(classify);
     $.ajax({
         url: "/load/updateProduct",
         method: "PUT",
@@ -95,7 +95,7 @@ function doneChangeproduct(){
             productname,
             classify,
             price,
-            discount,
+            percent,
             amount
         }
     })
@@ -134,7 +134,7 @@ function Refresh() {
         method: "GET"
     })
         .then((data) => {
-            console.log(data);
+            // console.log(data.value[0].percent);
 
             for (let i = 0; i < 4; i++) {
                 tbody.append(`
@@ -147,7 +147,7 @@ function Refresh() {
                   <td>${data.value[i].discount}</td>
                   <td>${data.value[i].amount}</td>
                   <td>
-                  <button onclick="myChangeproduct('${data.value[i]._id}', '${data.value[i].productname}','${data.value[i].price}','${data.value[i].discount}','${data.value[i].amount}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeproduct">Thay đổi</button>
+                  <button onclick="myChangeproduct('${data.value[i]._id}', '${data.value[i].productname}','${data.value[i].price}','${data.value[i].percent}','${data.value[i].amount}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeproduct">Thay đổi</button>
                     <button onclick=myDeleteproduct('${data.value[i]._id}') type="button" class="btn btn-danger">Xóa</button>
                   </td>
                 </tr>

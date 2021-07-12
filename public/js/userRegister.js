@@ -26,7 +26,8 @@ function summit() {
         }
     })
         .then((data) => {
-            console.log(data);
+            // console.log(data.message);
+            
         }).catch((err) => {
             console.log(err);
         })
@@ -46,6 +47,9 @@ function userLogin() {
     })
         .then((data) => {
             console.log(data);
+            if(data.message =="đăng nhập thành công"){
+                window.location.href = "/floda/san-pham"
+            }
             setCookie('user', data.token, 30)
         }).catch((err) => {
             console.log(err);

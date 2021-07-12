@@ -96,7 +96,7 @@
                         </li>
                         <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/floda/wishlist" style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
                         <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/userRegister" style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip" title="Chưa có sản phẩm trong giỏ hàng">
+                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart alert-product" data-toggle="tooltip" title="Chưa có sản phẩm trong giỏ hàng">
                             <a href="/floda/gio-hang" style=" color: black;"><i class="fas fa-shopping-cart dropbtn"></i></a>
                         </li>
                     </ul>
@@ -585,3 +585,9 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 <script src="../js/product.js"></script>
+<script>
+    $('#shop-cart[data-toggle="tooltip"]').tooltip({
+    animated: 'fade',
+    placement: 'bottom',
+});
+</script>

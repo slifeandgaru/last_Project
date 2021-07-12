@@ -128,7 +128,8 @@ function load_choose_product() {
                             ₫</span><span style="padding-left: 10px;">${data.value.discount} ₫</span></p>
                     <div
                         style="height: 55px;width: 55px;font-weight: bold;font-size: 22px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top: 9px;padding-left: 5px;position: absolute;">
-                        <span>-7%</span></div>
+                        <span>${data.value.percent}%</span>
+                    </div>
                 </div>
               </div>
             </div>
@@ -150,16 +151,19 @@ function load_choose_product() {
 }
 load_choose_product()
 
-function add_to_payment(){
-  if(getCookie("user") == ""){
-    console.log(getCookie("user") );
+
+
+function add_to_payment() {
+  if (getCookie("user") == "") {
+    console.log(getCookie("user"));
     let conf = confirm("Bạn chưa đăng nhập, vui lòng đăng nhập!!!!!!!!!!!")
-    if(conf == true){
-      window.location.href ="/userRegister"
+    if (conf == true) {
+      window.location.href = "/userRegister"
     }
-  }else{
+  } else {
     console.log("Sản phẩm đã đc thêm vào giỏ hàng");
   }
+  $("#alert-product").html("có 1 sản phẩm")
 }
 
 //function Set Cookie
@@ -189,6 +193,6 @@ function getCookie(cname) {
 
 
 $('#shop-cart[data-toggle="tooltip"]').tooltip({
-    animated: 'fade',
-    placement: 'bottom',
+  animated: 'fade',
+  placement: 'bottom',
 });
