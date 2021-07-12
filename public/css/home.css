@@ -164,6 +164,7 @@ figcaption {
   background: #eb3434;
   clip-path: polygon(100% 0%, 50% 9%, 0% 10%, 0% 100%, 100% 100%);
   transition: ease-in-out 0.5s;
+  opacity: 0.8;
 }
 
 .drawn_card:hover .drawn_content {
