@@ -5,13 +5,13 @@ let cartSchema = mongoose.Schema({
         type: String,
         ref: 'user'
     }],
-    listProduct: [{
+    listProduct: {
         idProduct:{
             type: String,
             ref: 'product'
         },
         amount: String
-    }]
+    }
 },{
     collection: 'cart'
 })

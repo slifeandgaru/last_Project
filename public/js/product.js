@@ -162,8 +162,19 @@ function add_to_payment() {
     }
   } else {
     console.log("Sản phẩm đã đc thêm vào giỏ hàng");
+    let userId = getCookie("user")
+    let listProduct = getCookie("product")
+    let amount = $("#quantity").val()
+    console.log(amount);
+    $.ajax({
+      url: "/productRouter/add_to_cart/" + userId + "/" + listProduct,
+      method: "POST",
+      data:{
+        amount
+      }
+    })
+
   }
-  $("#alert-product").html("có 1 sản phẩm")
 }
 
 //function Set Cookie

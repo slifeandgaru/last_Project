@@ -58,7 +58,7 @@ router.post("/login", (req, res) => {
                     bcrypt.compare(password, data.password, function (err, result) {
                         if (result) {
                             console.log(result);
-                            let token = jwt.sign({ id: data._id }, 'Admin')
+                            let token = jwt.sign({ id: data._id }, 'user')
                             // let decoed = jwt.verify(token, 'Admin')
                             // console.log(decoed.id);
                             res.json({
