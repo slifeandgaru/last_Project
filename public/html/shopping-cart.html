@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,8 @@
     <title>Giỏ hàng - Floda</title>
     <link rel="stylesheet" href="../css/shopping-cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <header style="height: auto">
     <div class="container">
@@ -87,15 +89,23 @@
                 <form>
                     <ul style="display: flex; font-size: 20px; list-style: none !important;">
                         <li class="hideicon dropdown " id="menu">
-                            <a href="" style=" color: black;"><i class="fas fa-search dropbtn"></i></a>     
-                                <div class="dropdown-content">
-                                  <a href="#"><div style="display: flex;"><input type="text" placeholder="Tìm kiếm..." style="width: 90%;"><button style="cursor: pointer;border-left: none;"><i class="fas fa-search"></i></button></div></a>
-                                </div>
+                            <a href="" style=" color: black;"><i class="fas fa-search dropbtn"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#">
+                                    <div style="display: flex;"><input type="text" placeholder="Tìm kiếm..."
+                                            style="width: 90%;"><button style="cursor: pointer;border-left: none;"><i
+                                                class="fas fa-search"></i></button></div>
+                                </a>
+                            </div>
                         </li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/floda/wishlist" style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/userRegister" style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip" title="Chưa có sản phẩm trong giỏ hàng">
-                            <a href="/floda/gio-hang" style=" color: black;"><i class="fas fa-shopping-cart dropbtn"></i></a>
+                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/floda/wishlist"
+                                style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/userRegister"
+                                style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip"
+                            title="Chưa có sản phẩm trong giỏ hàng">
+                            <a href="/floda/gio-hang" style=" color: black;"><i
+                                    class="fas fa-shopping-cart dropbtn"></i></a>
                         </li>
                     </ul>
                 </form>
@@ -105,9 +115,9 @@
 </header>
 
 <body>
-    
+
     <div class="container">
-        <hr style="width: 100%;margin-top: 20px;">      
+        <hr style="width: 100%;margin-top: 20px;">
         <div class="row" style="margin-top: 50px;">
             <div class="col-lg-7">
                 <div class="row">
@@ -116,64 +126,86 @@
                     <div class="col-lg-2" style="font-weight: bolder; font-size: 15px;">SỐ LƯỢNG</div>
                     <div class="col-lg-2 al" style="padding-left: 53px;font-weight: bolder; font-size: 15px;">TỔNG</div>
                 </div>
-                <hr style="width: 100%;margin-top: 7px;height:1.5px;border:none;background-color:rgb(182, 175, 175);"> 
-                <div class="row" style="height: auto;">
-                    <div class="col-lg-6" style="margin-top:-10px">
-                        <button style="border: 1px solid #ccc;border-radius: 50%; height: 1.5em;width: 1.5em;cursor: pointer;padding-bottom: 23px;"><i class="fas fa-times"></i></button>
-                        <img src="../image/product-2.jpg" alt="" style="height: 80px;width: 80px;">
-                        <a href="" style="color: #666;">Blossom bouquet flower</a>
-                    </div>
-                    <div class="col-lg-2" style="font-weight: bolder; font-size: 15px; color: #e84545; margin-top: 15px;">65,432 ₫</div>
-                    <div class="col-lg-2 "  style="width: 30%; margin-top: 15px;">
-                        <div class="input-group ">
-                            <span class="input-group-btn">
-                                <button type="button" class="quantity-left-minus btn-number"  data-type="minus" data-field="">
-                                <i class="fas fa-minus"></i>
-                                </button>
-                            </span>
-                            <input type="text" style="height: 28px;" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" >
-                            <span class="input-group-btn">
-                                <button type="button" class="quantity-right-plus  btn-number" data-type="plus" data-field="">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </span>
+                <hr style="width: 100%;margin-top: 7px;height:1.5px;border:none;background-color:rgb(182, 175, 175);">
+                <div class="show-cart">
+                    <!-- <div class="row" style="height: auto;">
+                        <div class="col-lg-6" style="margin-top:-10px">
+                            <div class="cart-name">
+                                <button
+                                    style="border: 1px solid #ccc;border-radius: 50%; height: 1.5em;width: 1.5em;cursor: pointer;padding-bottom: 23px;"><i
+                                        class="fas fa-times"></i></button>
+                                <img src="../image/product-2.jpg" alt="" style="height: 80px;width: 80px;">
+                                <a href="" style="color: #666;">Blossom bouquet flower</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 al" style="padding-left: 34px;font-weight: bolder; font-size: 15px; color: #e84545; margin-top: 15px;">65,432 ₫</div>
+                        <div class="col-lg-2 cart-price"
+                            style="font-weight: bolder; font-size: 15px; color: #e84545; margin-top: 15px;">65,432 ₫
+                        </div>
+                        <div class="col-lg-2 " style="width: 30%; margin-top: 15px;">
+                            <div class="input-group ">
+                                <span class="input-group-btn">
+                                    <button type="button" class="quantity-left-minus btn-number" data-type="minus"
+                                        data-field="">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </span>
+                                <input type="text" style="height: 28px;" id="quantity" name="quantity"
+                                    class="form-control input-number" value="1" min="1" max="100">
+                                <span class="input-group-btn">
+                                    <button type="button" class="quantity-right-plus  btn-number" data-type="plus"
+                                        data-field="">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 al"
+                            style="padding-left: 34px;font-weight: bolder; font-size: 15px; color: #e84545; margin-top: 15px;">
+                            65,432 ₫</div>
+                    </div> -->
                 </div>
-                <hr style="width: 100%;margin-top: 10px;">       
-                <div style="display: flex;" >
-                    <a href="/floda/cua-hang"><button style="width: 232px; height: 38px;background-color: white; color: #e84545;font-weight: bolder;border-color: #e84545;cursor: pointer;">  ← TIẾP TỤC XEM SẢN PHẨM</button></a>
-                    <button style="margin-left: 20px;width: 170px;font-size: 14px;opacity: 0.5;;color: white;background-color: #e84545;border: none;font-weight: bolder;">
+                <hr style="width: 100%;margin-top: 10px;">
+                <div style="display: flex;">
+                    <a href="/floda/cua-hang"><button
+                            style="width: 232px; height: 38px;background-color: white; color: #e84545;font-weight: bolder;border-color: #e84545;cursor: pointer;">
+                            ← TIẾP TỤC XEM SẢN PHẨM</button></a>
+                    <button
+                        style="margin-left: 20px;width: 170px;font-size: 14px;opacity: 0.5;;color: white;background-color: #e84545;border: none;font-weight: bolder;">
                         CẬP NHẬT GIỎ HÀNG
                     </button>
                 </div>
             </div>
             <div class="col-lg-5" style="border-left: 1px solid #ececec;height: 578px;">
                 <div style="font-weight: bolder; font-size: 15px;">CỘNG GIỎ HÀNG</div>
-                <hr style="width: 100%;margin-top: 6px;height:1.5px;border:none;background-color:rgb(182, 175, 175);"> 
-                <p >Tạm tính<span style="margin-left: 311px; color: #e84545;font-weight: bolder;">65,432 ₫</span>
+                <hr style="width: 100%;margin-top: 6px;height:1.5px;border:none;background-color:rgb(182, 175, 175);">
+                <p>Tạm tính<span class="total-cart" style="margin-left: 311px; color: #e84545;font-weight: bolder;">65,432 ₫</span>
                 </p>
                 <hr style="width: 100%;">
                 <div class="row">
                     <div class="col-lg-3" style="font-size: 15px;padding-top: 25px;">Giao hàng</div>
                     <div class="col-lg-9" style="font-size: 13px;">
                         <p style="margin-left: 212px;">Giao hàng miễn phí</p>
-                        <p style="margin-left: 18px;">Tùy chọn giao hàng sẽ được cập nhật trong quá trình thanh toán.</p>
+                        <p style="margin-left: 18px;">Tùy chọn giao hàng sẽ được cập nhật trong quá trình thanh toán.
+                        </p>
                         <p style="margin-left: 212px;">Tính phí giao hàng</p>
                     </div>
                 </div>
                 <hr style="width: 100%;">
-                <p>Tổng<span style="margin-left: 341px; color: #e84545;font-weight: bolder;">65,432 ₫</span>
-                <hr style="width: 100%;margin-top: 6px;height:1.5px;border:none;background-color:rgb(182, 175, 175);"> 
-                <a href="/floda/thanh-toan"><button style="width: 100%;height: 40px;background-color: black;color: white;border: none;cursor: pointer;font-weight: bolder;">TIẾN HÀNH THANH TOÁN</button></a>
+                <p>Tổng<span class="total-cart" style="margin-left: 341px; color: #e84545;font-weight: bolder;">65,432 ₫</span>
+                    <hr
+                        style="width: 100%;margin-top: 6px;height:1.5px;border:none;background-color:rgb(182, 175, 175);">
+                    <a href="/floda/thanh-toan"><button
+                            style="width: 100%;height: 40px;background-color: black;color: white;border: none;cursor: pointer;font-weight: bolder;">TIẾN
+                            HÀNH THANH TOÁN</button></a>
                 <p style="margin-top: 25px;">
                     <i class="fas fa-tag"></i>
                     <span>Phiếu ưu đãi</span>
                 </p>
-                <hr style="width: 100%;margin-top: 6px;height:1.8px;border:none;background-color:rgb(182, 175, 175);"> 
+                <hr style="width: 100%;margin-top: 6px;height:1.8px;border:none;background-color:rgb(182, 175, 175);">
                 <input type="text" style="width: 100%;height: 40px;" placeholder="Mã ưu đãi">
-                <a href=""><button style="width: 100%;height: 40px;margin-top: 15px;border: none;font-weight: bolder;color: rgb(182, 175, 175);cursor: pointer;">Áp dụng</button></a>
+                <a href=""><button
+                        style="width: 100%;height: 40px;margin-top: 15px;border: none;font-weight: bolder;color: rgb(182, 175, 175);cursor: pointer;">Áp
+                        dụng</button></a>
 
             </div>
         </div>
@@ -184,54 +216,104 @@
 <footer style="height: auto">
     <div style="margin-top: 80px; margin-bottom: 40px;" class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 ">   
+            <div class="col-lg-6 col-md-6 ">
                 <h3>Liên hệ</h3>
-                <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6></div>
-                <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6></div>
-                <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i> <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6></div>
+                <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location"
+                        style="font-size: 20px;"></i>
+                    <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6>
+                </div>
+                <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i>
+                    <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6>
+                </div>
+                <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i>
+                    <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6>
+                </div>
                 <div style="display: flex; padding-top: 10px;"><img src="../image/payment-pic.png" alt=""></div>
             </div>
-            <div  class="col-lg-6 col-md-6   ft row">
+            <div class="col-lg-6 col-md-6   ft row">
                 <div>
                     <ul style="list-style: none !important;">
-                        <li><h5>Danh Mục</h5></li>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa cưới</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Sale</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa của mẹ</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Valentine</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hoa Tựu Trường</li></a>
+                        <li>
+                            <h5>Danh Mục</h5>
+                        </li>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hoa cưới</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hoa Sale</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hoa của mẹ</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hoa Valentine</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hoa Tựu Trường</li>
+                        </a>
                     </ul>
                 </div>
                 <div style="padding-left: 90px;">
                     <ul style="list-style: none !important;">
-                        <li><h5>Mục Lục</h5></li>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Trang Chủ</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Giới Thiệu</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Liên Hệ</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Giao Dịch</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Vận Chuyển</li></a>
+                        <li>
+                            <h5>Mục Lục</h5>
+                        </li>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Trang Chủ</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Giới Thiệu</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Liên Hệ</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Giao Dịch</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Vận Chuyển</li>
+                        </a>
                     </ul>
                 </div>
                 <div style="padding-left: 90px;">
                     <ul style="list-style: none !important;">
-                        <li><h5>Liên Kết</h5></li>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Tài Khoản</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Địa Chỉ Cửa Hàng</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Theo Dõi Đơn Hàng</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Hướng Dẫn</li></a>
-                        <a href="" style="color:black;"><li style="padding-top: 5px;">Liên hệ</li></a>
+                        <li>
+                            <h5>Liên Kết</h5>
+                        </li>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Tài Khoản</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Địa Chỉ Cửa Hàng</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Theo Dõi Đơn Hàng</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Hướng Dẫn</li>
+                        </a>
+                        <a href="" style="color:black;">
+                            <li style="padding-top: 5px;">Liên hệ</li>
+                        </a>
                     </ul>
                 </div>
             </div>
         </div>
-        
+
     </div>
-    <div style="background-color:rgba(0,0,0,0.5);height: 40px;text-align: center;color: #555; " >
+    <div style="background-color:rgba(0,0,0,0.5);height: 40px;text-align: center;color: #555; ">
         <p>Copyright ©All Right Reserved.</p>
     </div>
 </footer>
+
 </html>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 <script src="../js/shopping-cart.js"></script>

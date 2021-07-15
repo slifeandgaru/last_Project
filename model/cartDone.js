@@ -10,17 +10,12 @@ let cartSchema = mongoose.Schema({
         amount: String
     }],
     status: String
+},{
+    collection: 'cart'
 })
 
 // tạo model
-const cartModel = mongoose.model("cart", cartSchema);
-const cart2Model = mongoose.model("cart2", cartSchema);
+const cartDoneModel = mongoose.model("cartDone", cartSchema);
 
 // export
-// module.exports = cartModel 
-    // cart2Model: cart2Model
-module.exports = {
-    cartModel: cartModel,
-    cart2Model: cart2Model
-}
-
+module.exports = cartDoneModel;

@@ -19,6 +19,11 @@ function listshow() {
                             <div class="hover-animation">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
+                                <button style="cursor: pointer;">
+                                    <div class="drawn_content">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </button>
                             </div>
                             <figcaption>
                                 <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>

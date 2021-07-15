@@ -1,17 +1,16 @@
 const mongoose = require('../config/connectDB')
 
 let billSchema = mongoose.Schema({
-    userId: [{
+    lastname: String,
+    surname: String,
+    address: String,
+    city: String,
+    phone: String,
+    email: String,
+    cartId: {
         type: String,
-        ref: 'user'
-    }],
-    listProduct: [{
-        idProduct:{
-            type: String,
-            ref: 'product'
-        },
-        amount: String
-    }],
+        ref: "cart"
+    },
     totalPrice: String
 },{
     collection: 'bill'
