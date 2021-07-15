@@ -248,10 +248,10 @@ figcaption {
 }
 .drawn_content {
   position: absolute;
-  top: -200px;
-  left: 84%;
-  padding: 6px;
-  height: 60px;
+  top: -281px;
+  left: 86%;
+  padding: 10px;
+  height: 100px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -259,6 +259,7 @@ figcaption {
   background: #eb3434;
   clip-path: polygon(100% 0%, 50% 9%, 0% 10%, 0% 100%, 100% 100%);
   transition: ease-in-out 0.5s;
+  opacity: 0.8;
 }
 
 .drawn_card:hover .drawn_content {

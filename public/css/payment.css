@@ -80,6 +80,9 @@ nav{
     .optio ul .optio1{
         margin-left: 22px;
     }
+    .confirm-order{
+        margin-top: 40px;
+    }
 }
 @media only screen and (max-width:768px) {
     .welcom{
