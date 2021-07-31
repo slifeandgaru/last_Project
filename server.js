@@ -75,6 +75,9 @@ app.get('/staffWS', (req,res) => {
 app.get('/userRegister', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/userRegister.html'))
 })
+app.get('/userdetail', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/userdetail.html'))
+})
 
 
 

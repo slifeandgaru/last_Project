@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Floda</title>
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -20,11 +20,11 @@
             <div class="col-lg-8 socialnw">
                 <ul style="display: flex; list-style: none;padding-left: 500px;">
                     <li>Languages</li>
-                    <li style="padding-left: 40px;" class="dropdown"><a href="" style=" color: black;"><i
+                    <li style="padding-left: 40px;" class="dropdown" id="shop-cart" data-toggle="tooltip" title="Follow on Facebook"><a href="" style=" color: black;"><i
                                 class="fab fa-facebook dropbtn"></i></a></li>
-                    <li style="padding-left: 8px;" class="dropdown"><a href="" style=" color: black;"><i
+                    <li style="padding-left: 8px;" class="dropdown" id="shop-cart" data-toggle="tooltip" title="Follow on Instagram"><a href="" style=" color: black;"><i
                                 class="fab fa-instagram dropbtn"></i></a></li>
-                    <li style="padding-left: 8px;" class="dropdown"><a href="" style=" color: black;"><i
+                    <li style="padding-left: 8px;" class="dropdown" id="shop-cart" data-toggle="tooltip" title="Follow on Twitter"><a href="" style=" color: black;"><i
                                 class="fab fa-twitter dropbtn"></i></a></li>
                 </ul>
             </div>
@@ -46,8 +46,8 @@
             </div>
             <div class="collapse navbar-collapse col-lg-8 optio" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/floda" style="padding-left:70px">TRANG CHỦ<span
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/floda" style="padding-left:70px;color: #cc2121;">TRANG CHỦ<span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -80,10 +80,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled optio1" style="padding-left:50px" href="#">TIN TỨC</a>
+                        <a class="nav-link optio1" style="padding-left:50px" href="/floda/category/tin-tuc">TIN TỨC</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled optio1" style="padding-left:50px" href="/floda/lien-he">LIÊN HỆ</a>
+                        <a class="nav-link  optio1" style="padding-left:50px" href="/floda/lien-he">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
@@ -104,8 +104,7 @@
                                 style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
                         <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/userRegister"
                                 style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip"
-                            title="Chưa có sản phẩm trong giỏ hàng">
+                        <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip" title="Chưa có sản phẩm trong giỏ hàng">
                             <a href="/floda/gio-hang" style=" color: black;"><i
                                     class="fas fa-shopping-cart dropbtn"></i></a>
                         </li>
