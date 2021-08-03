@@ -73,7 +73,7 @@ function create_bill(){
   var email = $("#email").val()
   var cartId = $(".cartId").text()
   var totalPrice = $("#totalPrice").text()
-  
+  alert("đặt hàng thành công")
   
 
   $.ajax({

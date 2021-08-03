@@ -1,5 +1,9 @@
 const productModel = require('../Model/productModel')
 const managertModel = require('../Model/managerModel')
+const blacklisttModel = require('../Model/blacklist')
+
+const ckeck = require("../middlewave/middlewave")
+
 const express = require('express');
 const multer = require('multer');
 // const ejs = require('ejs');
@@ -38,7 +42,7 @@ router.post("/multiple", upload.array('image', 3), (req, res) => {
     let classify = req.body.classify
     let price = req.body.price
     let percent = req.body.percent
-    let discount = (price - ((price*percent)/100))
+    let discount = (price - ((price * percent) / 100))
     let amount = req.body.amount
     let listPicture = []
     for (let i = 0; i < req.files.length; i++) {
@@ -90,31 +94,31 @@ router.get("/loadHome", (req, res) => {
         })
 })
 
-router.get("/loadstaff/:id", (req, res) => {
-    // try {
-    let token = req.params.id
-    let decoed = jwt.verify(token, 'Admin')
-    console.log(decoed);
-    managertModel.findOne({ _id: decoed.id })
-        .then((data) => {
-            res.json({
-                error: false,
-                message: "load thành công",
-                value: data
+router.get("/loadstaff/:id", ckeck.checkToken, (req, res) => {
+    try {
+        let token = req.params.id
+        let decoed = jwt.verify(token, 'Admin')
+        // console.log(token);
+        managertModel.findOne({ _id: decoed.id })
+            .then((data) => {
+                res.json({
+                    error: false,
+                    message: "load thành công",
+                    value: data
+                })
+            }).catch((err) => {
+                res.json({
+                    error: true,
+                    message: "load không thành công"
+                })
             })
-        }).catch((err) => {
-            res.json({
-                error: true,
-                message: "load không thành công"
-            })
-        })
 
-    // } catch (error) {
-    //     return res.json({
-    //         error: true,
-    //         message: "loi o try catch " + error
-    //     })
-    // }
+    } catch (error) {
+        return res.json({
+            error: true,
+            message: "loi o try catch " + error
+        })
+    }
 
 })
 
@@ -124,7 +128,7 @@ router.put("/updateProduct", (req, res) => {
     let classify = req.body.classify
     let price = req.body.price
     let percent = req.body.percent
-    let discount = (price - ((price*percent)/100))
+    let discount = (price - ((price * percent) / 100))
     let amount = req.body.amount
     console.log(classify);
     productModel.updateOne({
@@ -157,15 +161,15 @@ router.delete('/remove', (req, res) => {
             productModel.deleteOne({
                 _id: data._id
             })
-            .then((data)=>{
-                res.json({
-                    error: false,
-                    message: "xoa thanh cong"
+                .then((data) => {
+                    res.json({
+                        error: false,
+                        message: "xoa thanh cong"
+                    })
                 })
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
+                .catch((err) => {
+                    console.log(err);
+                })
 
             for (var i = 0; i < data.listPicture.length; i++) {
                 fs.unlink("public/image/" + data.listPicture[i], (err => {
@@ -175,12 +179,25 @@ router.delete('/remove', (req, res) => {
                     }
                 }));
             }
-    
+
         }).catch((err) => {
             res.json({
                 error: true,
                 message: "xóa thất bại " + err,
             })
+        })
+})
+
+router.post("/blacklist/:token", (req, res) => {
+    let token = req.params.token
+
+    blacklisttModel.create({
+        token: token
+    })
+        .then((data) => {
+            console.log(data);
+        }).catch((err) => {
+            console.log(err);
         })
 })
 

@@ -3,13 +3,13 @@ function classify_product() {
     console.log(classi);
     let list = $(".listshow_store")
     $.ajax({
-        url: "/load/loadHome",
+        url: "/staffRouter/loadHome",
         method: "GET"
     })
         .then((data) => {
             console.log(data.value[0]._id);
 
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 8; i++) {
                 if (data.value[i].classify == classi) {
                     if (data.value[i].discount == undefined) {
                         list.append(`
@@ -34,7 +34,7 @@ function classify_product() {
                             <div class="hover-animation">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
-                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>-7%</span></div>
+                                <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>${data.value[i].percent}%</span></div>
                             </div>
                             <figcaption>
                                 <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>

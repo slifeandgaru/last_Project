@@ -161,11 +161,10 @@ function add_to_payment() {
       window.location.href = "/userRegister"
     }
   } else {
-    console.log("Sản phẩm đã đc thêm vào giỏ hàng");
     let userId = getCookie("user")
     let listProduct = getCookie("product")
     let amount = $("#quantity").val()
-    console.log(amount);
+    console.log(amount); 
     $.ajax({
       url: "/productRouter/add_to_cart/" + userId + "/" + listProduct,
       method: "POST",
@@ -173,7 +172,14 @@ function add_to_payment() {
         amount
       }
     })
-
+    .then((data) =>{
+      console.log(data);
+      if(data.message == "Không đủ"){
+        alert("Số lượng sản phẩm không đủ")
+      }else if(data.message == "Sản phẩm đã được thêm vào giỏ hàng"){
+        alert("Sản phẩm đã được thêm vào giỏ hàng")
+      }
+    })
   }
 }
 

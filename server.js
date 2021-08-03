@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const manager = require("./router/managerRouter")
 const staff = require("./router/staffRouter")
-const load = require("./router/staffRouter")
 const product = require("./router/productRouter")
 const user = require("./router/userRouter")
 
@@ -19,7 +18,6 @@ app.use("/staffRouter", staff)
 app.use("/productRouter", product)
 app.use("/userRouter", user)
 
-app.use("/load", load)
 //read file
 app.use(express.static( __dirname + "/public"))
 //html
@@ -63,10 +61,17 @@ app.get('/login', (req,res) => {
 app.get('/staffWS', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/WorkSpace/staffWS.html'))
 })
+app.get('/managerWS', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/WorkSpace/managerWS.html'))
+})
+app.get('/controlBill', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/WorkSpace/controlBill.html'))
+})
 
 app.get('/userRegister', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/userRegister.html'))
 })
+
 
 
 

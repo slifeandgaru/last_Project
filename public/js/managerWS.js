@@ -11,6 +11,32 @@ $(".data-product").click(function () {
     $(".content-product").removeClass("hide")
 })
 
+function Submit(){
+    // let name = document.getElementById("idName").value
+    // let password = $("#idPass").val()
+    // let email = 
+    // let address = $("#idAdress").val()
+    // let phone = $("#idPhone").val()
+
+    $.ajax({
+        url: "/managerRouter",
+        method: "POST",
+        data: {
+            account: $("#idAccount").val(),
+            name : $("#idName").val(),
+            password: $("#idPass").val(),
+            email: $("#idGmail").val(),
+            address: $("#idAdress").val(),
+            phone: $("#idPhone").val()
+        }
+    })
+    .then((data) =>{
+        alert(data)
+    }).catch((err) =>{
+        console.log(err);
+    })
+}
+
 
 function submit_image() {
     let data = $("form")[0];
@@ -34,7 +60,7 @@ function submit_image() {
 // showLibrary()
 
 function myDetail() {
-    let token = getCookie("staff")
+    let token = getCookie("Admin")
     console.log(token);
     if (token == "") {
         alert("Bạn chưa đăng nhập vui lòng đăng nhập")
@@ -46,7 +72,7 @@ function myDetail() {
             method: "GET",
         })
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 if (data.message == "token đã vào blacklist") {
                     alert("bạn không được quyền truy cập, vui lòng đăng nhập")
                     window.location.href = "/login"
@@ -189,24 +215,6 @@ function Refresh() {
         })
 }
 Refresh()
-
-
-function signOut() {
-    let token = getCookie("staff")
-
-    $.ajax({
-        url: "/staffRouter/blacklist/" + token,
-        method: "POST",
-    })
-        .then((data) => {
-            console.log(data);
-        }).catch((err) => {
-            console.log(err);
-        })
-        setTimeout(myDetail(), 1000)
-}
-
-
 function Refresh_Staff() {
     let tbody = $("#list-user-detail")
     // let page = "0"
@@ -242,6 +250,89 @@ function Refresh_Staff() {
         })
 }
 Refresh_Staff()
+
+
+var arrIdToChangeManager = [1]
+function myChangeManager(id, account, name, password, email, address, phone) {
+    // console.log(id);
+    // console.log(percent);
+    if (arrIdToChangeManager.length >= 2) arrIdToChangeManager.pop()
+    arrIdToChangeManager.push(id)
+    $("#change_account_manager").val(`${account}`)
+    $("#change_name_manager").val(`${name}`)
+    // $("#change_password_manager").val(`${password}`)
+    $("#change_email_manager").val(`${email}`)
+    $("#change_address_manager").val(`${address}`)
+    $("#change_phone_manager").val(`${phone}`)
+}
+
+function doneChange() {
+    let id = arrIdToChangeManager[1]
+    let account = $("#change_account_manager").val()
+    let name = $("#change_name_manager").val()
+    let password = $("#change_password_manager").val()
+    let email = $("#change_email_manager").val()
+    let address = $("#change_address_manager").val()
+    let phone = $("#change_phone_manager").val()
+    
+    // console.log(classify);
+    $.ajax({
+        url: "/managerRouter/updateManager",
+        method: "PUT",
+        data: {
+            id,
+            account,
+            name,
+            password,
+            email,
+            address,
+            phone
+        }
+    })
+        .then((data) => {
+            console.log(data);
+            if(data.message == "update successful"){
+                setTimeout(Refresh_Staff(), 1000)
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
+}
+
+function signOut() {
+    let token = getCookie("Admin")
+
+    $.ajax({
+        url: "/staffRouter/blacklist/" + token,
+        method: "POST",
+    })
+        .then((data) => {
+            console.log(data);
+        }).catch((err) => {
+            console.log(err);
+        })
+        setTimeout(myDetail(), 1000)
+}
+
+function myDeleteManager(id){
+
+    $.ajax({
+        url: "/managerRouter/removeManager",
+        method: "DELETE",
+        data:{
+            id
+        }
+    })
+    .then((data)=>{
+        console.log(data);
+        if(data.message == "Không thể xóa Admin"){
+            alert("Không thể xóa Admin")
+        }
+    }).catch((err)=>{
+        console.log(err);
+    })
+}
+
 
 
 //function Set Cookie

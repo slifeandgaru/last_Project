@@ -100,8 +100,11 @@
                                 </a>
                             </div>
                         </li>
-                        <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/floda/wishlist"
-                                style=" color: black;"><i class="fas fa-heart dropbtn"></i></a></li>
+                        <li class="hideicon dropdown" style="padding-left: 10px;"><a class="number_wishlist" href="/floda/wishlist"
+                                style=" color: black;"><i class="fas fa-heart dropbtn"></i>
+                                
+                            </a>
+                        </li>
                         <li class="hideicon dropdown" style="padding-left: 10px;"><a href="/userRegister"
                                 style=" color: black;"><i class="fas fa-user dropbtn"></i></a></i></li>
                         <li class="hideicon dropdown" style="padding-left: 10px;" id="shop-cart" data-toggle="tooltip"
@@ -362,8 +365,8 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-6">
+        <div class="row listshow">
+            <!-- <div class="col-lg-3 col-md-6 col-6">
                 <figure>
                     <div class="hover-animation drawn_card">
                         <img src="../image/product-11.jpg" alt="" class="img-back">
@@ -371,7 +374,7 @@
                         <div
                             style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: 1%;text-align: center;">
                             <span>-7%</span></div>
-                        <button style="cursor: pointer;">
+                        <button onclick="show_something()" style="cursor: pointer;">
                             <div class="drawn_content">
                                 <i class="fas fa-heart"></i>
                             </div>
@@ -440,7 +443,7 @@
                         <p style="color:#cc2121;font-weight: bolder;">5,600,000 ₫</p>
                     </figcaption>
                 </figure>
-            </div>
+            </div> -->
         </div>
     </div>
     <hr style="width: 100%; margin-top: 90px;">
@@ -557,5 +560,6 @@
     crossorigin="anonymous">
     </script>
 <script src="../js/home.js"></script>
+<link rel="stylesheet" href="../css/home.css">
 
 </html>

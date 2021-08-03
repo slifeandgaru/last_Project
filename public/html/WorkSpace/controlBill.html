@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+    </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="controlBill">
+      <center>
+        <h1>FLODA Quản lý Bill</h1>
+      </center>
+      <hr>
+    </div>
+    <div class="show_all_bill">
+      <h2>Tất cả đơn hàng</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Mã đơn hàng</th>
+            <th scope="col">Khách hàng</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Chức năng</th>
+          </tr>
+        </thead>
+        <tbody class="billTable">
+          <!-- ---------------------------------- -->
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------------- -->
+    <div class="viewInfomation" style="display: none;">
+      <h2>Chi tiết đơn hàng</h2>
+      <table>
+        <tr>
+          <td style="height: 60px;">Mã đơn hàng: </td>
+          <td><input style="width: 500px" id="cartId" type="text"></td>
+        </tr>
+        <tr>
+          <td>Hình ảnh</td>
+          <td id="show_image">
+            <!-- ảnh sẽ được load từ database -->
+          </td>
+        </tr>
+        <tr>
+          <td>Giá sản phẩm</td>
+          <td id="show_price">
+            <!-- ------------------------------------ -->
+          </td>
+        <tr>
+          <td>Tổng: </td>
+          <td id="Total_price"></td>
+        </tr>
+        </tr>
+        <tr>
+          <td style="width: 200px; height: 60px;">Tên: </td>
+          <td><input style="width: 500px" id="firstname" type="text"></td>
+        </tr>
+        <tr>
+          <td style="height: 60px;">Tên: </td>
+          <td><input style="width: 500px" id="lastname" type="text"></td>
+        </tr>
+        <tr>
+          <td style="height: 60px;">Địa chỉ: </td>
+          <td><input style="width: 500px" id="address" type="text"></td>
+        </tr>
+        <tr>
+          <td style="height: 60px;">Thành phố: </td>
+          <td><input style="width: 500px" id="city" type="text"></td>
+        </tr>
+        <tr>
+          <td style="height: 60px;">Số điện thoại: </td>
+          <td><input style="width: 500px" id="phone" type="text"></td>
+        </tr>
+        <tr>
+          <td style="height: 60px;">Gmail: </td>
+          <td><input style="width: 500px" id="gmail" type="text"></td>
+        </tr>
+      </table>
+      <button class="btn btn-secondary" onclick="Back()">Quay lại</button>
+    </div>
+  </div>
+</body>
+<footer>
+  <hr>
+  <div style="height: 40px;text-align: center;color: #555; ">
+    <p>Copyright ©All Right Reserved.</p>
+    <p>Create by Xuan Truong & Khang Pham</p>
+  </div>
+</footer>
+
+</html>
+<script src="../../js/controlBill.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous">
+  </script>

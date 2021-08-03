@@ -1,25 +1,25 @@
 // load ảnh lên mục sản phẩm hàng đầu ở trang Home
 function listshow() {
     let list = $(".listshow")
-    let list1 = $(".listshow1")
     // list.append("dcm")
     // console.log("dcm");
     $.ajax({
-        url: "/load/loadHome",
+        url: "/staffRouter/loadHome",
         method: "GET"
     })
         .then((data) => {
             console.log(data);
-
+            // console.log(data.value[0]._id);
+            
             for (let i = 0; i < 4; i++) {
                 if(data.value[i].discount == undefined){
                     list.append(`
                     <div class="col-lg-3 col-md-6 col-6">
                         <figure>
-                            <div class="hover-animation">
+                            <div class="hover-animation drawn_card">
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
-                                <button style="cursor: pointer;">
+                                <button onclick="show_something('${data.value[i]._id}')" style="cursor: pointer;">
                                     <div class="drawn_content">
                                         <i class="fas fa-heart"></i>
                                     </div>
@@ -41,6 +41,11 @@ function listshow() {
                                 <img src="../image/${data.value[i].listPicture[0]}" alt="" class="img-back">
                                 <img src="../image/${data.value[i].listPicture[1]}" alt="" class="img-front">
                                 <div style="height: 45px;width: 45px;font-weight: bolder;font-size: 15px;color: #fff;background-color: black;border-radius: 50%;display: inline-block;padding-top:11px;;position: absolute;top: 10%;left: -2%;text-align: center;"><span>${data.value[i].percent}%</span></div>
+                                <button onclick="show_something('${data.value[i]._id}')" style="cursor: pointer;">
+                                    <div class="drawn_content">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </button>
                             </div>
                             <figcaption>
                                 <p style="font-weight: 600; padding-top: 10px;margin-bottom: auto;">${data.value[i].productname}</p>
@@ -74,6 +79,46 @@ function buyProduct(id){
     setCookie('product', id, 30)
     window.location.href = "/floda/san-pham"
 }
+
+function show_something(id){
+    var userId = getCookie("user")
+    console.log(id);
+    $.ajax({
+        url: '/productRouter/add_to_wishlist',
+        method: "POST",
+        data:{
+            userId,
+            id
+        }
+    })
+    .then((data) =>{
+        console.log(data);
+        alert("sản phẩm đã được thêm vào Wishlist")
+    }).catch((err) =>{
+        console.log(err);
+    })
+}
+
+function number_wishlist(){
+    var userId = getCookie("user")
+    $.ajax({
+        url: "/productRouter/load_wishlist",
+        method: "POST",
+        data: {
+            userId
+        }
+    })
+    .then((data) =>{
+        let count_number = data.value2.length
+        $(".number_wishlist").append(`
+        <div
+            style="height: 20px;width: 20px;font-weight: bolder;font-size: 10px;color: #fff;background-color: red;border-radius: 50%;display: inline-block;padding-top:3px;position: absolute;top: -8px;left: 20px;text-align: center;">
+                <span>${count_number}</span>
+        </div>
+        `)
+    })
+}
+number_wishlist()
 
 
 //function Set Cookie

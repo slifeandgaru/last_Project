@@ -19,8 +19,10 @@ function adminLogin(){
         console.log(data.message);
         if(data.error == true){
             $(".alertError").append(`<span class="spanError">${data.message}</span>`)
+        }else if(data.message == "đăng nhập thành công"){
+            window.location.href = "/managerWS"
         }
-        setCookie('token', data.token, 30)
+        setCookie('Admin', data.token, 30)
     })
     .catch((error) =>{
         console.log(error + "error");
@@ -45,7 +47,7 @@ function staffLogin(){
         }else if(data.message == "đăng nhập thành công"){
             window.location.href = "/staffWS"
         }
-        setCookie('token', data.token, 30)
+        setCookie('staff', data.token, 30)
     })
     .catch((error) =>{
         console.log(error + "error");

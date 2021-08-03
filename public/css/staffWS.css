@@ -90,11 +90,11 @@
   margin: 0 !important;
 }
 .menu {
-  position: fixed;
-  height: 100%;
+  /* position: fixed; */
+  /* height: 100%; */
   background: #f9f9f9;
-  padding: 50px 0 20px 0;
-  margin-top: 70px;
+  padding: 90px 0 20px 0;
+  /* margin-top: 70px; */
   box-shadow: 0 0 5px 0 gray;
 }
 .menu div {
@@ -112,9 +112,12 @@
   background: #3c6382 !important;
   color: white !important;
 }
+.parent{
+  display: flex;
+}
 .content {
-  position: fixed;
-  margin-top: 70px;
+  /* position: fixed;
+  margin-top: 70px; */
   height: 100%;
   right: 0px;
 }
@@ -122,6 +125,7 @@
   display: none;
 }
 .content-table {
+  /* padding-top: 80px; */
   margin: 10px;
 }
 .content-table th {
@@ -131,6 +135,7 @@
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  padding-top: 80px;
 }
 .btn-footer {
   position: absolute;
@@ -158,7 +163,7 @@
 }
 .detail {
   position: fixed;
-  margin-top: 70px;
+  /* margin-top: 70px; */
   padding: 10px;
   right: 0px;
 }
