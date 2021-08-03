@@ -7,23 +7,30 @@ const ckeck = require("../middlewave/middlewave")
 const express = require('express');
 const multer = require('multer');
 // const ejs = require('ejs');
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 // (fs)
-const fs = require('fs');
+const fs = require("fs");
 
 const router = express.Router();
-const path = require('path')
+const path = require("path");
 
 router.post("/creProduct", (req, res) => {
-    let productname = req.body.productname
-    let price = req.body.price
-    let classifyID = req.body.classifyID
-    let description = req.body.description
-    let amount = req.body.amount
-    let listPicture = req.body.listPicture
+  let productname = req.body.productname;
+  let price = req.body.price;
+  let classifyID = req.body.classifyID;
+  let description = req.body.description;
+  let amount = req.body.amount;
+  let listPicture = req.body.listPicture;
 
-    productModel.create({ productname, price, classifyID, description, amount, listPicture })
-})
+  productModel.create({
+    productname,
+    price,
+    classifyID,
+    description,
+    amount,
+    listPicture,
+  });
+});
 
 const fileStorageEngine = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -63,36 +70,76 @@ router.post("/multiple", upload.array('image', 3), (req, res) => {
         })
 });
 
+const upload = multer({ storage: fileStorageEngine });
 
+router.post("/multiple", upload.array("image", 3), (req, res) => {
+  let productname = req.body.productname;
+  let classify = req.body.classify;
+  let price = req.body.price;
+  let percent = req.body.percent;
+  let discount = price - (price * percent) / 100;
+  let amount = req.body.amount;
+  let listPicture = [];
+  for (let i = 0; i < req.files.length; i++) {
+    listPicture.push(req.files[i].filename);
+  }
+  console.log(listPicture);
+  productModel
+    .create({
+      productname,
+      classify,
+      price,
+      percent,
+      discount,
+      listPicture,
+      amount,
+    })
+    .then((data) => {
+      console.log(data);
+      // res.sendFile(path.join(__dirname,'../public/html/WorkSpace/staffWS.html'))
+      console.log(data);
+    })
+    .catch((err) => {
+      // res.json({
+      //     error: true,
+      //     message: "upload fail " + err,
+      // })
+      console.log(err);
+    });
+});
 
 router.get("/refresh/:skip", (req, res) => {
-    let skip = req.params.skip
-    productModel.find()
-        .skip(parseInt(skip))
-        .then((data) => {
-            res.json({
-                error: false,
-                message: "ok",
-                value: data
-            })
-        }).catch((err) => {
-            console.log(err);
-        })
-})
+  let skip = req.params.skip;
+  productModel
+    .find()
+    .skip(parseInt(skip))
+    .then((data) => {
+      res.json({
+        error: false,
+        message: "ok",
+        value: data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 router.get("/loadHome", (req, res) => {
-    productModel.find({})
-        .then((data) => {
-            console.log(data);
-            res.json({
-                error: false,
-                message: "ok",
-                value: data
-            })
-        }).catch((err) => {
-            console.log(err);
-        })
-})
+  productModel
+    .find({})
+    .then((data) => {
+      console.log(data);
+      res.json({
+        error: false,
+        message: "ok",
+        value: data,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 router.get("/loadstaff/:id", ckeck.checkToken, (req, res) => {
     try {
@@ -139,23 +186,30 @@ router.put("/updateProduct", (req, res) => {
         price: price,
         percent: percent,
         discount: discount,
-        amount: amount
+        amount: amount,
+      }
+    )
+    .then((data) => {
+      console.log(data);
     })
-        .then((data) => {
-            console.log(data);
-        }).catch((err) => {
-            console.log("ngu" + err);
+    .catch((err) => {
+      console.log("ngu" + err);
+    });
+});
+
+router.delete("/remove", (req, res) => {
+  let id = req.body.id;
+
+  productModel
+    .findOne({
+      _id: id,
+    })
+    .then((data) => {
+      console.log(data.listPicture[0]);
+      productModel
+        .deleteOne({
+          _id: data._id,
         })
-})
-
-
-
-router.delete('/remove', (req, res) => {
-    let id = req.body.id
-
-    productModel.findOne({
-        _id: id
-    })
         .then((data) => {
             console.log(data.listPicture[0]);
             productModel.deleteOne({
@@ -186,7 +240,26 @@ router.delete('/remove', (req, res) => {
                 message: "xóa thất bại " + err,
             })
         })
-})
+        .catch((err) => {
+          console.log(err);
+        });
+
+      for (var i = 0; i < data.listPicture.length; i++) {
+        fs.unlink("public/image/" + data.listPicture[i], (err) => {
+          if (err) console.log(err);
+          else {
+            console.log("\nDeleted file: example_file.txt");
+          }
+        });
+      }
+    })
+    .catch((err) => {
+      res.json({
+        error: true,
+        message: "xóa thất bại " + err,
+      });
+    });
+});
 
 router.post("/blacklist/:token", (req, res) => {
     let token = req.params.token

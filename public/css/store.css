@@ -122,6 +122,31 @@ figcaption {
 .dropdown:hover .dropbtn {
   color: #cc2121;
 }
+.drawn_card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.drawn_content {
+  position: absolute;
+  top: -200px;
+  left: 84%;
+  padding: 6px;
+  height: 60px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #eb3434;
+  clip-path: polygon(100% 0%, 50% 9%, 0% 10%, 0% 100%, 100% 100%);
+  transition: ease-in-out 0.5s;
+}
+
+.drawn_card:hover .drawn_content {
+  top: 0px;
+  transition: ease-in 0.5s;
+}
+
 @media only screen and (max-width: 992px) {
   .socialnw {
     display: none;
@@ -167,13 +192,13 @@ figcaption {
     display: none !important;
   }
   .listt {
-    display: none ;
+    display: none;
     height: 400px;
-    overflow-y:auto;
+    overflow-y: auto;
     margin-left: 24%;
     margin-right: 23%;
   }
-  .productt{
+  .productt {
     margin-top: 50px;
   }
 }

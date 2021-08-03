@@ -1,22 +1,7 @@
-//Javascript
-
-$("#menu").hover(function() {
-    $("#sub_menu").show();
-}, function() {
-    $("#sub_menu").hide();
-});
-$(document).ready(function () {
-    var quantity = 0;
-    $(".quantity-right-plus").click(function (e) {
-      e.preventDefault();
-      var quantity = parseInt($("#quantity").val());
-      $("#quantity").val(quantity + 1);
-    });
-    $(".quantity-left-minus").click(function (e) {
-      e.preventDefault();
-      var quantity = parseInt($("#quantity").val());
-      if (quantity > 0) {
-        $("#quantity").val(quantity - 1);
-      }
-    });
-  });
+// var n = 0
+// for(var a = 0; a<=20010932; a++){
+//   if(a % 24 !== 0 && a % 25 !==0){
+//     n++;
+//   }
+// }
+// console.log(n);

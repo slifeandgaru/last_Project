@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 var port = 3000
-const router = require('./router/index')
 const bodyParser = require('body-parser')
 const path = require('path')
 const manager = require("./router/managerRouter")
@@ -50,6 +49,15 @@ app.get('/floda/gio-hang', (req,res) => {
 app.get('/floda/thanh-toan', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/payment.html'))
 })
+app.get('/floda/category/tin-tuc', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/news.html'))
+})
+app.get('/floda/tin-tuc1', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/news1.html'))
+})
+app.get('/floda/tin-tuc2', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/news2.html'))
+})
 
 app.get('/create', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/managerRegister.html'))
@@ -70,6 +78,9 @@ app.get('/controlBill', (req,res) => {
 
 app.get('/userRegister', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/userRegister.html'))
+})
+app.get('/userdetail', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/userdetail.html'))
 })
 
 
