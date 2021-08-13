@@ -19,7 +19,7 @@ app.use("/productRouter", product)
 app.use("/userRouter", user)
 
 //read file
-app.use('/public',express.static( __dirname + "/public"))
+app.use(express.static( __dirname + "/public"))
 //html
 
 app.get('/floda', (req,res) => {
