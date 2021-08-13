@@ -90,7 +90,7 @@ router.get("/loadHome", (req, res) => {
                 value: data
             })
         }).catch((err) => {
-            console.log(err);
+            res.json(err)
         })
 })
 
