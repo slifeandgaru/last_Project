@@ -30,6 +30,8 @@ function summit() {
         .then((data) => {
             if(data == "tài khoản đã tồn tại"){
                 alert("Tài khoản đã tồn tại")
+            }else{
+                alert("đăng kí thành công")
             }
             
         }).catch((err) => {
