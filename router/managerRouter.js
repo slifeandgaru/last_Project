@@ -1,4 +1,4 @@
-const managertModel = require('../Model/managerModel')
+const managertModel = require('../model/managerModel')
 const express = require('express');
 const router = express.Router();
 

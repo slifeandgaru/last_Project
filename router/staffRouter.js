@@ -1,6 +1,6 @@
-const productModel = require('../Model/productModel')
-const managertModel = require('../Model/managerModel')
-const blacklisttModel = require('../Model/blacklist')
+const productModel = require('../model/productModel')
+const managertModel = require('../model/managerModel')
+const blacklisttModel = require('../model/blacklist')
 
 const ckeck = require("../middlewave/middlewave")
 

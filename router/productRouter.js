@@ -1,5 +1,5 @@
-const productModel = require('../Model/productModel')
-const managertModel = require('../Model/managerModel')
+const productModel = require('../model/productModel')
+const managertModel = require('../model/managerModel')
 const cartModel = require('../model/cart')
 // const cart2Model = require('../model/cart')
 const billModel = require('../model/bill')
@@ -13,7 +13,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router();
 const path = require('path')
 const checkAuth = require('../middlewave/middlewave')
-const userModel = require('../Model/userModel')
+const userModel = require('../model/userModel')
 
 router.get('/cua-hang/:classify', (req, res) => {
     let classify = req.query.classify
