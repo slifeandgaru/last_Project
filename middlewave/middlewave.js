@@ -4,6 +4,9 @@ const blacklistModel = require('../Model/blacklist')
 const productModel = require('../Model/productModel')
 const manager = require("../router/managerRouter");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+
 
 function checkAuth(req, res, next) {
     var account = req.body.account
@@ -20,9 +23,9 @@ function checkAuth(req, res, next) {
         })
 }
 function checkUser(req, res, next) {
-    var username = req.body.username
+    var account = req.body.account
 
-    userModel.findOne({ username })
+    userModel.findOne({ account })
         .then((data) => {
             if (data) {
                 res.json("tài khoản đã tồn tại")
@@ -36,16 +39,58 @@ function checkUser(req, res, next) {
 
 function checkGmail(req, res, next) {
     var email = req.body.email
-
-    if (email.includes("@") == false) {
-        res.json("gmail phải có @")
+    console.log(email);
+    if (email == "") {
+        res.json("vui lòng nhập gmail")
     } else if (email.includes("gmail") == false) {
         res.json("bạn vui lòng nhập đúng gmail")
     } else if (email.includes(".com") == false) {
         res.json("gmail của bạn thiếu .com")
+    } else if (email.includes("@") == false) {
+        res.json("gmail phải có @")
     } else {
         next()
     }
+}
+
+function checkBill(req, res, next) {
+    var lastname = req.body.lastname
+    var surname = req.body.surname
+    var address = req.body.address
+    var phone = req.body.phone
+    var city = req.body.city
+    var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+    if (lastname == "") {
+        res.json("Vui lòng nhập Tên của bạn")
+    } else if (surname == "") {
+        res.json("Vui lòng nhập đầy đủ họ tên")
+        console.log("dm");
+    } else if (address == "") {
+        res.json("Vui lòng nhập địa chỉ")
+    } else if (city == "") {
+        res.json("Vui lòng nhập thành phố")
+    } else if (vnf_regex.test(phone) == false) {
+        res.json('Số điện thoại của bạn không đúng định dạng!');
+    } else if (phone == "") {
+        res.json('Bạn chưa điền số điện thoại!');
+    } else {
+        next()
+    }
+}
+
+function checkPhoneNumber(req, res, next) {
+    let phone = req.body.phone
+    var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+    if (phone !== '') {
+        if (vnf_regex.test(phone) == false) {
+            res.json('Số điện thoại của bạn không đúng định dạng!');
+        } else {
+            next()
+        }
+    } else {
+        res.json('Bạn chưa điền số điện thoại!');
+    }
+
 }
 
 function checkToken(req, res, next) {
@@ -108,11 +153,36 @@ async function checkAmount(req, res, next) {
 
 }
 
+function check_old_password(req, res, next) {
+    let password = req.body.old_password
+    let token = req.body.token
+    let decoed = jwt.verify(token, 'user')
+
+    userModel.findOne({
+        _id: decoed.id
+    })
+        .then((data) => {
+            bcrypt.compare(password, data.password, function (err, result) {
+                console.log(result);
+                if(result == true){
+                   next()
+                }
+                else{
+                    res.json("Mật khẩu cũ không chính xác")
+                }
+            })
+        })
+
+}
+
 module.exports = {
     checkAuth: checkAuth,
     checkGmail: checkGmail,
     checkUser: checkUser,
     checkToken: checkToken,
     checkRole: checkRole,
-    checkAmount: checkAmount
+    checkAmount: checkAmount,
+    checkBill: checkBill,
+    checkPhoneNumber: checkPhoneNumber,
+    check_old_password: check_old_password
 }

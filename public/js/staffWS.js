@@ -11,6 +11,10 @@ $(".data-product").click(function () {
     $(".content-product").removeClass("hide")
 })
 
+$(".data-bill").click(function(){
+    window.location.href = "/controlBill"
+})
+
 
 function submit_image() {
     let data = $("form")[0];
@@ -207,41 +211,88 @@ function signOut() {
 }
 
 
-function Refresh_Staff() {
+function get_staff_information() {
     let tbody = $("#list-user-detail")
+    let staffId = getCookie("staff")
+    console.log(staffId);
     // let page = "0"
     // console.log(page);
 
     tbody.empty();
     $.ajax({
-        url: "/managerRouter/refresh_Staff",
-        method: "GET"
+        url: "/managerRouter/get_staff_information/" + staffId,
+        method: "GET",
     })
         .then((data) => {
             // console.log(data.value[0].percent);
-
-            for (let i = 0; i < 4; i++) {
                 tbody.append(`
                 <tr>
-                  <td>${i + 1}</td>
-                  <td>${data.value[i].name}</td>
-                  <td>${data.value[i].email}</td>
-                  <td>${data.value[i].address}</td>
-                  <td>${data.value[i].phone}</td>
-                  <td>${data.value[i].role}</td>
+                  <td>${1}</td>
+                  <td>${data.value.name}</td>
+                  <td>${data.value.email}</td>
+                  <td>${data.value.address}</td>
+                  <td>${data.value.phone}</td>
+                  <td>${data.value.role}</td>
                   <td>
-                  <button onclick="myChangeManager('${data.value[i]._id}','${data.value[i].account}','${data.value[i].name}','${data.value[i].password}','${data.value[i].email}','${data.value[i].address}','${data.value[i].phone}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeData">Thay đổi</button>
-                    <button onclick=myDeleteManager('${data.value[i]._id}') type="button" class="btn btn-danger">Xóa</button>
+                  <button onclick="myChangeManager('${data.value._id}','${data.value.account}','${data.value.name}','${data.value.password}','${data.value.email}','${data.value.address}','${data.value.phone}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeData">Thay đổi</button>
+                    <button onclick=myDeleteManager('${data.value._id}') type="button" class="btn btn-danger">Xóa</button>
                   </td>
                 </tr>
         `)
-            }
+            
         })
         .catch((err) => {
             console.log(err);
         })
 }
-Refresh_Staff()
+get_staff_information()
+
+var arrIdToChangeManager = [1]
+function myChangeManager(id, account, name, password, email, address, phone) {
+    // console.log(id);
+    // console.log(percent);
+    if (arrIdToChangeManager.length >= 2) arrIdToChangeManager.pop()
+    arrIdToChangeManager.push(id)
+    $("#change_account_manager").val(`${account}`)
+    $("#change_name_manager").val(`${name}`)
+    // $("#change_password_manager").val(`${password}`)
+    $("#change_email_manager").val(`${email}`)
+    $("#change_address_manager").val(`${address}`)
+    $("#change_phone_manager").val(`${phone}`)
+}
+
+function doneChange() {
+    let id = arrIdToChangeManager[1]
+    let account = $("#change_account_manager").val()
+    let name = $("#change_name_manager").val()
+    let password = $("#change_password_manager").val()
+    let email = $("#change_email_manager").val()
+    let address = $("#change_address_manager").val()
+    let phone = $("#change_phone_manager").val()
+    
+    // console.log(classify);
+    $.ajax({
+        url: "/managerRouter/updateManager",
+        method: "PUT",
+        data: {
+            id,
+            account,
+            name,
+            password,
+            email,
+            address,
+            phone
+        }
+    })
+        .then((data) => {
+            console.log(data);
+            if(data.message == "update successful"){
+                setTimeout(Refresh_Staff(), 1000)
+            }
+        }).catch((err) => {
+            console.log(err);
+        })
+}
 
 
 //function Set Cookie

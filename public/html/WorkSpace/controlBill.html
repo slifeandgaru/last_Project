@@ -1,24 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous">
     </script>
-  <title>Document</title>
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+</head>
+<header style="height: auto">
+  <div class="container">
+      <div class="row welcom" style=" margin-top: 10px;">
+          <p class="col-lg-4 ">Welcome to Floda online store</p>
+          <div class="col-lg-8 socialnw">
+              <ul style="display: flex; list-style: none;padding-left: 500px;">
+                  <li>Languages</li>
+                  <li style="padding-left: 40px;" class="dropdown"><a href="" style=" color: black;"><i
+                              class="fab fa-facebook dropbtn"></i></a></li>
+                  <li style="padding-left: 8px;" class="dropdown"><a href="" style=" color: black;"><i
+                              class="fab fa-instagram dropbtn"></i></a></li>
+                  <li style="padding-left: 8px;" class="dropdown"><a href="" style=" color: black;"><i
+                              class="fab fa-twitter dropbtn"></i></a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+  <hr style="width:100%">
+  <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light row ">
+          <div class="col-lg-2 logo1">
+              <a class="navbar-brand " href="#"><img src="../image/logo.png" alt=""></a>
+              <button class="navbar-toggler sel" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <li style="padding-left: 10px; list-style: none!important;" class="asdsa"><a href=""
+                      style=" color: black;"><i class="fas fa-shopping-cart"></i></a></li>
+          </div>
+          <div class="collapse navbar-collapse col-lg-8 optio" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/floda" style="padding-left:70px">TRANG CHỦ<span
+                              class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link optio1" href="/floda/gioi-thieu" style="padding-left:50px ">GIỚI THIỆU</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle optio1" style="padding-left:50px" href="#"
+                          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                          aria-expanded="false">
+                          CỬA HÀNG
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <!-- <a class="dropdown-item" href="/floda/cua-hang?Momflower">Hoa của mẹ</a>
+                          <a class="dropdown-item" href="/floda/cua-hang?WeddingFlower">Hoa cưới</a>
+                          <a class="dropdown-item" href="#">Hoa sale</a>
+                          <a class="dropdown-item" href="#">Hoa tựu trường</a>
+                          <a class="dropdown-item" href="#">Hoa valentine</a> -->
+                          <ul style="list-style: none; text-align: center;" id="myClassify">
+                              <li id="Hoa của mẹ"><button style="background-color: white; border: none;" class="">Hoa
+                                      của mẹ</button></li>
+                              <li id="Hoa cưới"><button style="background-color: white; border: none;" class="">Hoa
+                                      cưới</button></li>
+                              <li id="Hoa sale"><button style="background-color: white; border: none;" class="">Hoa
+                                      sale</button></li>
+                              <li id="Hoa tựu trường"><button style="background-color: white; border: none;"
+                                      class="">Hoa tựu trường</button></li>
+                              <li id="Hoa valentine"><button style="background-color: white; border: none;"
+                                      class="">Hoa valentine</button></li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link disabled optio1" style="padding-left:50px" href="#">TIN TỨC</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link disabled optio1" style="padding-left:50px" href="/floda/lien-he">LIÊN HỆ</a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+  </div>
+</header>
 <body>
   <div class="container">
     <div class="controlBill">
       <center>
-        <h1>FLODA Quản lý Bill</h1>
+        <h1>Quản lý Bill</h1>
       </center>
       <hr>
     </div>
@@ -96,11 +174,96 @@
     </div>
   </div>
 </body>
-<footer>
-  <hr>
-  <div style="height: 40px;text-align: center;color: #555; ">
-    <p>Copyright ©All Right Reserved.</p>
-    <p>Create by Xuan Truong & Khang Pham</p>
+<footer style="height: auto">
+  <div style="margin-top: 80px; margin-bottom: 40px;" class="container">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 ">
+              <h3>Liên hệ</h3>
+              <div style="display: flex; padding-top: 5px;"><i class="fas fa-search-location"
+                      style="font-size: 20px;"></i>
+                  <h6 style="padding-left: 15px;">Địa chỉ: 319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</h6>
+              </div>
+              <div style="display: flex; padding-top: 5px;"><i class="fas fa-phone" style="font-size: 20px;"></i>
+                  <h6 style="padding-left: 15px;">Điện Thoại: (012) 800 456 789-987</h6>
+              </div>
+              <div style="display: flex; padding-top: 5x;"><i class="fas fa-envelope" style="font-size: 20px;"></i>
+                  <h6 style="padding-left: 15px;">Mail: yourmail@gmail.com</h6>
+              </div>
+              <div style="display: flex; padding-top: 10px;"><img src="../image/payment-pic.png" alt=""></div>
+          </div>
+          <div class="col-lg-6 col-md-6   ft row">
+              <div>
+                  <ul style="list-style: none !important;">
+                      <li>
+                          <h5>Danh Mục</h5>
+                      </li>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hoa cưới</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hoa Sale</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hoa của mẹ</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hoa Valentine</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hoa Tựu Trường</li>
+                      </a>
+                  </ul>
+              </div>
+              <div style="padding-left: 90px;">
+                  <ul style="list-style: none !important;">
+                      <li>
+                          <h5>Mục Lục</h5>
+                      </li>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Trang Chủ</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Giới Thiệu</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Liên Hệ</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Giao Dịch</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Vận Chuyển</li>
+                      </a>
+                  </ul>
+              </div>
+              <div style="padding-left: 90px;">
+                  <ul style="list-style: none !important;">
+                      <li>
+                          <h5>Liên Kết</h5>
+                      </li>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Tài Khoản</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Địa Chỉ Cửa Hàng</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Theo Dõi Đơn Hàng</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Hướng Dẫn</li>
+                      </a>
+                      <a href="" style="color:black;">
+                          <li style="padding-top: 5px;">Liên hệ</li>
+                      </a>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+  </div>
+  <div style="background-color:rgba(0,0,0,0.5);height: 40px;text-align: center;color: #555; ">
+      <p>Copyright ©All Right Reserved.</p>
   </div>
 </footer>
 

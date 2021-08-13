@@ -46,12 +46,14 @@ function load_bill_cart() {
   })
     .then((data) => {
       console.log(data);
-      
+
       for (let i = 0; i < data.value.listProduct.length; i++) {
         Total = Total + (data.value.listProduct[i].amount * data.value2[i].price)
         $(".bill-product-name").append(`
-          <p>${data.value2[i].productname} × ${data.value.listProduct[i].amount}<span
-                                style="margin-left:145px;color:#cc2121;font-weight:bolder">${data.value.listProduct[i].amount * data.value2[i].price} ₫</span></p>
+          <div class="row">
+            <div class="col-lg-6">${data.value2[i].productname}×${data.value.listProduct[i].amount}</div>
+            <div class="col-lg-6"><span style="margin-left:145px;color:#cc2121;font-weight:bolder">${data.value.listProduct[i].amount * data.value2[i].price}</span></div>
+          </div>
           <hr style="width: 100%;">
         `)
       }
@@ -64,7 +66,7 @@ function load_bill_cart() {
 
 load_bill_cart()
 
-function create_bill(){
+function create_bill() {
   var lastname = $("#lastname").val()
   var surname = $("#surname").val()
   var address = $("#address").val()
@@ -73,13 +75,13 @@ function create_bill(){
   var email = $("#email").val()
   var cartId = $(".cartId").text()
   var totalPrice = $("#totalPrice").text()
-  alert("đặt hàng thành công")
-  
+  let token = getCookie("user")
 
+  
   $.ajax({
     url: "/productRouter/create_bill",
     method: "POST",
-    data:{
+    data: {
       lastname,
       surname,
       address,
@@ -87,15 +89,40 @@ function create_bill(){
       phone,
       email,
       cartId,
-      totalPrice
+      totalPrice,
+      token
     }
   })
-  .then((data) =>{
-    console.log(data);
-  }).catch((err)=>{
-    console.log(err);
-  })
+    .then((data) => {
+      console.log(data);
+      if (data == "Vui lòng nhập Tên của bạn") {
+        alert("Vui lòng nhập Tên của bạn")
+      } else if (data == "Vui lòng nhập đầy đủ họ tên") {
+        alert("Vui lòng nhập đầy đủ họ tên")
+      } else if (data == "Vui lòng nhập địa chỉ") {
+        alert("Vui lòng nhập địa chỉ")
+      } else if (data == "Vui lòng nhập thành phố") {
+        alert("Vui lòng nhập thành phố")
+      } else if (data == "Số điện thoại của bạn không đúng định dạng!") {
+        alert('Số điện thoại của bạn không đúng định dạng!');
+      } else if (data == "Bạn chưa điền số điện thoại!") {
+        alert('Bạn chưa điền số điện thoại!');
+      } else if (data == "gmail phải có @") {
+        alert("gmail phải có @")
+      } else if (data == "bạn vui lòng nhập đúng gmail") {
+        alert("bạn vui lòng nhập đúng gmail")
+      } else if (data == "gmail của bạn thiếu .com") {
+        alert("gmail của bạn thiếu .com")
+      } else if (data == "vui lòng nhập gmail") {
+        alert("vui lòng nhập gmail")
+      }else if("đặt hàng thành công"){
+        alert("đặt hàng thành công")
+      }
+    }).catch((err) => {
+      console.log(err);
+    })
 }
+
 
 
 //function Set Cookie

@@ -195,7 +195,9 @@ router.post("/blacklist/:token", (req, res) => {
         token: token
     })
         .then((data) => {
-            console.log(data);
+            res.json({
+                message: "đã thêm vào blacklist"
+            })
         }).catch((err) => {
             console.log(err);
         })

@@ -9,6 +9,7 @@ function move_to_login() {
 
 function summit() {
     let username = $("#username").val()
+    let account = $("#account").val()
     let password = $("#password").val()
     let phone = $("#phone").val()
     let birthDate = $("#birthDate").val()
@@ -19,6 +20,7 @@ function summit() {
         method: "POST",
         data: {
             username,
+            account,
             password,
             phone,
             birthDate,
@@ -26,7 +28,9 @@ function summit() {
         }
     })
         .then((data) => {
-            // console.log(data.message);
+            if(data == "tài khoản đã tồn tại"){
+                alert("Tài khoản đã tồn tại")
+            }
             
         }).catch((err) => {
             console.log(err);
@@ -34,20 +38,20 @@ function summit() {
 }
 
 function userLogin() {
-    let username = $("#username-login").val()
+    let account = $("#account-login").val()
     let password = $("#password-login").val()
-    console.log(username);
     $.ajax({
         url: "/userRouter/login",
         method: "POST",
         data: {
-            username,
+            account,
             password 
         }
     })
         .then((data) => {
             console.log(data);
             if(data.message =="đăng nhập thành công"){
+                alert("Đăng nhập thành công")
                 window.location.href = "/floda/san-pham"
             }
             setCookie('user', data.token, 30)

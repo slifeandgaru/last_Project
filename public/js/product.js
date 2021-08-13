@@ -102,8 +102,8 @@ function load_choose_product() {
         `)
 
         $(".priceOrder").append(`
-          <p style="color: #1c1c1c;font-weight: 500;font-size: 25px;">Hyacinth white stick</p>
-          <div class="is-divider small"></div>
+          <p style="color: #1c1c1c;font-weight: 500;font-size: 25px;">${data.value.productname}</p>
+          <div><p>Số lượng: ${data.value.amount}</p> </div>
           <p style="color: red;font-weight: bold;font-size: 25px;">
             <span>${data.value.price} ₫</span>
           </p>
@@ -137,8 +137,8 @@ function load_choose_product() {
         `)
 
         $(".priceOrder").append(`
-          <p style="color: #1c1c1c;font-weight: 500;font-size: 25px;">Hyacinth white stick</p>
-          <div class="is-divider small"></div>
+          <p style="color: #1c1c1c;font-weight: 500;font-size: 25px;">${data.value.productname}</p>
+          <div><p>Số lượng: ${data.value.amount}</p> </div>
           <p style="color: red;font-weight: bold;font-size: 25px;">
             <span style="text-decoration:line-through;opacity: 0.5;">${data.value.price} ₫</span>
             <span style="padding-left: 10px;">${data.value.discount} ₫</span>
@@ -164,22 +164,22 @@ function add_to_payment() {
     let userId = getCookie("user")
     let listProduct = getCookie("product")
     let amount = $("#quantity").val()
-    console.log(amount); 
+    console.log(amount);
     $.ajax({
       url: "/productRouter/add_to_cart/" + userId + "/" + listProduct,
       method: "POST",
-      data:{
+      data: {
         amount
       }
     })
-    .then((data) =>{
-      console.log(data);
-      if(data.message == "Không đủ"){
-        alert("Số lượng sản phẩm không đủ")
-      }else if(data.message == "Sản phẩm đã được thêm vào giỏ hàng"){
-        alert("Sản phẩm đã được thêm vào giỏ hàng")
-      }
-    })
+      .then((data) => {
+        console.log(data);
+        if (data.message == "Không đủ") {
+          alert("Số lượng sản phẩm không đủ")
+        } else if (data.message == "Sản phẩm đã được thêm vào giỏ hàng") {
+          alert("Sản phẩm đã được thêm vào giỏ hàng")
+        }
+      })
   }
 }
 

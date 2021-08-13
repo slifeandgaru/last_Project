@@ -72,7 +72,13 @@ app.get('/userRegister', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/userRegister.html'))
 })
 
+app.get('/userdetail', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/userdetail.html'))
+})
+
+app.get('/userHistory', (req,res) => {
+    res.sendFile(path.join(__dirname,'./public/html/userHistory.html'))
+})
 
 
-
-app.listen(3000);
+app.listen(process.env.PORT || 3000);

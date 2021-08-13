@@ -13,6 +13,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router();
 const path = require('path')
 const checkAuth = require('../middlewave/middlewave')
+const userModel = require('../Model/userModel')
 
 router.get('/cua-hang/:classify', (req, res) => {
     let classify = req.query.classify
@@ -46,7 +47,6 @@ router.post("/add_to_cart/:userId/:idProduct", checkAuth.checkAmount, async (req
     let decoed = jwt.verify(token, 'user')
     let userId = decoed.id
     // console.log(idProduct)
-
     let create_new = await cartModel.cartModel.findOne({ userId: userId })
     if (create_new == null) {
         cartModel.cartModel.create({
@@ -62,6 +62,35 @@ router.post("/add_to_cart/:userId/:idProduct", checkAuth.checkAmount, async (req
     }
 
     else if (create_new != null) {
+        if (create_new.listProduct.length == 0) {
+            let update_cart = await cartModel.cartModel.updateOne({
+                userId: userId
+            }, {
+                $push: {
+                    listProduct: {
+                        idProduct,
+                        amount: amount
+                    }
+                }
+            })
+            res.json({
+                message: "Sản phẩm đã được thêm vào giỏ hàng"
+            })
+        } else {
+            let update_cart = await cartModel.cartModel.updateOne({
+                userId: userId
+            }, {
+                $push: {
+                    listProduct: {
+                        idProduct,
+                        amount: amount
+                    }
+                }
+            })
+            res.json({
+                message: "Sản phẩm đã được thêm vào giỏ hàng 2"
+            })
+        }
         for (let i = 0; i < create_new.listProduct.length; i++) {
             if (create_new.listProduct[i].idProduct == idProduct) {
                 let totalAmount = Number(create_new.listProduct[i].amount) + Number(amount)
@@ -85,22 +114,6 @@ router.post("/add_to_cart/:userId/:idProduct", checkAuth.checkAmount, async (req
                     }
                 })
             }
-            else {
-                let update_cart = await cartModel.cartModel.updateOne({
-                    userId: userId
-                }, {
-                    $push: {
-                        listProduct: {
-                            idProduct,
-                            amount: amount
-                        }
-                    }
-                })
-                res.json({
-                    message: "Sản phẩm đã được thêm vào giỏ hàng"
-                })
-
-            }
         }
     }
 })
@@ -115,7 +128,8 @@ router.post("/load_cart", async (req, res) => {
         // console.log(findone);
         if (findone.listProduct == null) {
             console.log("null dm");
-        } else {
+        }
+        else {
             for (let i = 0; i < findone.listProduct.length; i++) {
                 var findPro = await productModel.findOne({
                     _id: findone.listProduct[i].idProduct
@@ -123,14 +137,21 @@ router.post("/load_cart", async (req, res) => {
                 findProduct.push(findPro)
                 // console.log(findPro);
             }
-            console.log(findProduct);
+            if (findProduct.length == 0) {
+                res.json({
+                    error: true,
+                    message: "giỏ hàng trống rỗng",
+                })
+            } else {
+                res.json({
+                    error: false,
+                    message: "some thing",
+                    value: findone,
+                    value2: findProduct
+                })
+            }
         }
-        res.json({
-            error: false,
-            message: "some thing",
-            value: findone,
-            value2: findProduct
-        })
+
     } catch (error) {
         res.json({
             error: true,
@@ -157,7 +178,7 @@ router.delete("/remove_cart/:id/:number", async (req, res) => {
     })
 })
 
-router.post("/create_bill", (req, res) => {
+router.post("/create_bill", checkAuth.checkBill, checkAuth.checkGmail, async (req, res) => {
     var lastname = req.body.lastname
     var surname = req.body.surname
     var address = req.body.address
@@ -166,47 +187,51 @@ router.post("/create_bill", (req, res) => {
     var email = req.body.email
     var cartId = req.body.cartId
     var totalPrice = req.body.totalPrice
-
-
+    var token = req.body.token
+    let decoed = jwt.verify(token, 'user')
 
     try {
-        billModel.create({ lastname, surname, address, city, phone, email, cartId, totalPrice })
-            .then((data) => {
-                cartModel.cartModel.findOne({
-                    _id: cartId
-                }, function (err, result) {
-                    let swap = new (cartModel.cart2Model)(result.toJSON())
-                    result.remove()
-                    swap.save()
-                    console.log(result + "rs");
+        let create_bill = await billModel.create({ lastname, surname, address, city, phone, email, cartId, totalPrice })
+        // .then((data) => {
+        let done_payment = await cartModel.cartModel.findOne({
+            _id: cartId
+        }, function (err, result) {
+            let swap = new (cartModel.cart2Model)(result.toJSON())
+            result.remove()
+            swap.save()
+            console.log(result + "rs");
 
-                    for (let i = 0; i < result.listProduct.length; i++) {
-                        productModel.findOne({
-                            _id: result.listProduct[i].idProduct
-                        })
-                            .then((data) => {
-                                productModel.updateOne({
-                                    _id: data._id
-                                }, {
-                                    amount: (data.amount - result.listProduct[i].amount)
-                                })
-                                    .then((data_amount) => {
-                                        console.log(data_amount);
-                                    })
-                            })
-                    }
+            for (let i = 0; i < result.listProduct.length; i++) {
+                productModel.findOne({
+                    _id: result.listProduct[i].idProduct
                 })
+                    .then((data) => {
+                        productModel.updateOne({
+                            _id: data._id
+                        }, {
+                            amount: (data.amount - result.listProduct[i].amount)
+                        })
+                            .then((data_amount) => {
+                                console.log(data_amount);
+                            })
+                    })
+            }
+        })
 
-                // cartModel.cart2Model.find({
-                //     _id: cartId
-                // })
-                //     .then((data) => {
-                //         console.log(data.userId);
-                //     })
-
-            }).catch((err) => {
-                console.log(err);
-            })
+        // console.log(create_bill.id);
+        let update_user_history = await userModel.updateOne({
+            _id: decoed.id
+        },{
+            $push: {
+                listBill: {
+                    idBill: create_bill.id
+                }
+            }
+        })
+        res.json("đặt hàng thành công")
+        // }).catch((err) => {
+        //     console.log(err);
+        // })
     } catch (error) {
         console.log("lỗi");
     }
@@ -264,27 +289,34 @@ router.post("/add_to_wishlist", (req, res) => {
 router.post("/load_wishlist", async (req, res) => {
     let userId = req.body.userId
     var wishlist = []
-    let decoed = jwt.verify(userId, 'user')
-    // console.log(decoed.id)
-    var find_user_wishlist = await wishlistModel.findOne({ userId: decoed.id })
-    console.log(find_user_wishlist);
-    if (find_user_wishlist.wishlist == null) {
-        console.log("null dm");
-    } else {
-        for (let i = 0; i < find_user_wishlist.wishlist.length; i++) {
-            var findProduct = await productModel.findOne({
-                _id: find_user_wishlist.wishlist[i].productId
-            })
-            wishlist.push(findProduct)
-            // console.log(findPro);
+    try {
+        let decoed = jwt.verify(userId, 'user')
+        // console.log(decoed.id)
+        var find_user_wishlist = await wishlistModel.findOne({ userId: decoed.id })
+        console.log(find_user_wishlist);
+        if (find_user_wishlist == null) {
+            console.log("chưa có wishlist");
         }
+        else if (find_user_wishlist.wishlist == null) {
+            console.log("null dm");
+        } else {
+            for (let i = 0; i < find_user_wishlist.wishlist.length; i++) {
+                var findProduct = await productModel.findOne({
+                    _id: find_user_wishlist.wishlist[i].productId
+                })
+                wishlist.push(findProduct)
+                // console.log(findPro);
+            }
+        }
+        res.json({
+            error: false,
+            message: "some thing",
+            value: find_user_wishlist,
+            value2: wishlist
+        })
+    } catch (error) {
+        console.log(error);
     }
-    res.json({
-        error: false,
-        message: "some thing",
-        value: find_user_wishlist,
-        value2: wishlist
-    })
 })
 
 router.delete("/remove_wishlist/:userId/:idProduct", async (req, res) => {
@@ -413,6 +445,20 @@ router.post("/showBill/:cartId", async (req, res) => {
         value3: amount,
         value4: price
     })
+})
+
+router.get("/search_product/:productname", async (req, res) => {
+    try {
+        let productname = req.params.productname
+        console.log(productname);
+        let data = await productModel.find({
+            productname:
+                { $regex: `.*${productname}.*` }
+        })
+        res.json(data)
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 

@@ -11,6 +11,10 @@ $(".data-product").click(function () {
     $(".content-product").removeClass("hide")
 })
 
+$(".data-bill").click(function(){
+    window.location.href = "/controlBill"
+})
+
 function Submit(){
     // let name = document.getElementById("idName").value
     // let password = $("#idPass").val()
@@ -181,10 +185,11 @@ function myDeleteproduct(id) {
 
 function Refresh() {
     let tbody = $("#list-product")
+    tbody.empty();
     let page = "0"
     console.log(page);
 
-    tbody.empty();
+    
     $.ajax({
         url: "/staffRouter/refresh/" + page,
         method: "GET"
@@ -215,6 +220,8 @@ function Refresh() {
         })
 }
 Refresh()
+
+
 function Refresh_Staff() {
     let tbody = $("#list-user-detail")
     // let page = "0"
@@ -331,6 +338,44 @@ function myDeleteManager(id){
     }).catch((err)=>{
         console.log(err);
     })
+}
+
+
+function search_product(){
+    let tbody = $("#list-product")
+    tbody.empty();
+    let productname = $("#search_product").val()
+    $.ajax({
+        url: "/productRouter/search_product/" + productname,
+        method: "GET",
+        // data:{
+        //     username
+        // }
+    })
+        .then((data) => {
+            console.log(data);
+
+            for (let i = 0; i < 8; i++) {
+                tbody.append(`
+                <tr>
+                  <td>${i + 1}</td>
+                  <td><img style="width: 75px; height: 100px;" src="../../image/${data[i].listPicture[0]}" alt=""></td>
+                  <td>${data[i].productname}</td>
+                  <td>${data[i].classify}</td>
+                  <td>${data[i].price}</td>
+                  <td>${data[i].discount}</td>
+                  <td>${data[i].amount}</td>
+                  <td>
+                  <button onclick="myChangeproduct('${data[i]._id}', '${data[i].productname}','${data[i].price}','${data[i].percent}','${data[i].amount}')" id="btn-change" type="button" class="btn btn-info" data-toggle="modal" data-target="#modalChangeproduct">Thay đổi</button>
+                    <button onclick=myDeleteproduct('${data[i]._id}') type="button" class="btn btn-danger">Xóa</button>
+                  </td>
+                </tr>
+        `)
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 }
 
 

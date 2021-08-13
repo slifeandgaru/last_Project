@@ -2,16 +2,20 @@ const mongoose = require('../config/connectDB')
 
 let userSchema = mongoose.Schema({
     username: String,
+    account:String,
     password: String,
     gender: String,
     phone: String,
     birthDate:String,
+    address: String,
     email: String,
     avatar: String,
     cartID: String,
     listBill: [{
-        type: String,
-        ref: 'bill'
+        idBill:{
+            type: String,
+            ref: 'bill'
+        }
     }]
 },{
     collection: 'user'

@@ -58,6 +58,7 @@
     <div class="menu">
       <div class="data-user">Quản lý thông tin</div>
       <div class="data-product">Quản lý sản phẩm</div>
+      <div class="data-bill">Quản lý đơn hàng</div>
     </div>
     <!-- Thông tin product -->
     <div class="content content-product hide">
@@ -113,11 +114,7 @@
       <div class="btn-header">
         <table>
           <tr>
-            <td><button style="margin-left: -10px;" id="btn-create" type="button" class="btn btn-info"
-                data-toggle="modal" data-target="#modalAddData">
-                Thêm nhân viên
-              </button></td>
-            <td><button style="margin: 0 0 0 20px;" class="btn btn-info" onclick="Refresh_Staff()">Refresh</button></td>
+            <td><button class="btn btn-info" onclick="get_staff_information()">Refresh</button></td>
           </tr>
         </table>
       </div>
@@ -157,7 +154,7 @@
     </div>
   </div>
   <!-- Modal thay đổi data -->
-  <div class="modal fade" id="modalChange" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalChangeData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -169,28 +166,28 @@
         <div class="modal-body">
           <table>
             <tr>
-              <td>Email:</td>
-              <td>
-                <input id="add-email" class="input-text" type="text">
-              </td>
+              <td>Account</td>
+              <td><input type="text" id="change_account_manager"></td>
             </tr>
             <tr>
-              <td>Username:</td>
-              <td>
-                <input id="add-username" class="input-text" type="text">
-              </td>
+              <td>Tên</td>
+              <td><input type="text" id="change_name_manager"></td>
             </tr>
             <tr>
-              <td>Phone:</td>
-              <td>
-                <input id="add-phone" class="input-text" type="text">
-              </td>
+              <td>mật khẩu</td>
+              <td><input type="text" id="change_password_manager"></td>
             </tr>
             <tr>
-              <td>Password:</td>
-              <td>
-                <input id="add-password" class="input-text" type="text">
-              </td>
+              <td>Gmail</td>
+              <td><input type="text" id="change_email_manager"></td>
+            </tr>
+            <tr>
+              <td>Địa chỉ</td>
+              <td><input type="text" id="change_address_manager"></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td><input type="text" id="change_phone_manager"></td>
             </tr>
           </table>
         </div>

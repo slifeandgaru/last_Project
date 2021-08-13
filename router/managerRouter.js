@@ -151,5 +151,17 @@ router.delete("/removeManager", checkAuth.checkRole, (req, res)=>{
     
 })
 
+router.get("/get_staff_information/:staffId", async (req, res) =>{
+    let staffId = req.params.staffId
+    let decoed = jwt.verify(staffId, 'Admin').id
+
+    let get_staff = await managertModel.findOne({_id: decoed})
+
+    res.json({
+        value: get_staff
+    })
+
+})
+
 
 module.exports = router
