@@ -221,7 +221,7 @@ router.post("/create_bill", checkAuth.checkBill, checkAuth.checkGmail, async (re
         // console.log(create_bill.id);
         let update_user_history = await userModel.updateOne({
             _id: decoed.id
-        },{
+        }, {
             $push: {
                 listBill: {
                     idBill: create_bill.id
@@ -290,30 +290,37 @@ router.post("/load_wishlist", async (req, res) => {
     let userId = req.body.userId
     var wishlist = []
     try {
-        let decoed = jwt.verify(userId, 'user')
-        // console.log(decoed.id)
-        var find_user_wishlist = await wishlistModel.findOne({ userId: decoed.id })
-        console.log(find_user_wishlist);
-        if (find_user_wishlist == null) {
-            console.log("chưa có wishlist");
-        }
-        else if (find_user_wishlist.wishlist == null) {
-            console.log("null dm");
-        } else {
-            for (let i = 0; i < find_user_wishlist.wishlist.length; i++) {
-                var findProduct = await productModel.findOne({
-                    _id: find_user_wishlist.wishlist[i].productId
-                })
-                wishlist.push(findProduct)
-                // console.log(findPro);
+        if (userId) {
+            let decoed = jwt.verify(userId, 'user')
+            // console.log(decoed.id)
+            var find_user_wishlist = await wishlistModel.findOne({ userId: decoed.id })
+            console.log(find_user_wishlist);
+            if (find_user_wishlist == null) {
+                console.log("chưa có wishlist");
             }
+            else if (find_user_wishlist.wishlist == null) {
+                console.log("null dm");
+            } else {
+                for (let i = 0; i < find_user_wishlist.wishlist.length; i++) {
+                    var findProduct = await productModel.findOne({
+                        _id: find_user_wishlist.wishlist[i].productId
+                    })
+                    wishlist.push(findProduct)
+                    // console.log(findPro);
+                }
+            }
+            res.json({
+                error: false,
+                message: "some thing",
+                value: find_user_wishlist,
+                value2: wishlist
+            })
+        }else{
+            res.json({
+                message: "không có cookie"
+            })
         }
-        res.json({
-            error: false,
-            message: "some thing",
-            value: find_user_wishlist,
-            value2: wishlist
-        })
+
     } catch (error) {
         console.log(error);
     }
