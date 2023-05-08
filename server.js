@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-var port = 3099
 const router = require('./router/index')
 const bodyParser = require('body-parser')
 const path = require('path')
@@ -34,4 +33,4 @@ app.get('/floda/thanh-toan', (req,res) => {
     res.sendFile(path.join(__dirname,'./public/html/payment.html'))
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3003)
